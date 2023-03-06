@@ -1,0 +1,21 @@
+Run scripts order by up to down.
+
+Add Column Year, Quarter, Month, Week, DayofYear, Date in Table:
+1. dbo.Trans_Data_Health.sql
+2. dbo.Trans_Message_Log.sql
+3. dbo.Trans_System_Health.sql
+4. dbo.Trans_System_Health_Instance.sql
+5. dbo.Trans_System_Health_Storage.sql
+
+Create SCHEMA
+6. CREATE SCHEMA.sql
+
+Create Table history
+7. history.Trans_Data_Health_Archive.sql
+8. history.Trans_Message_Log_Archive.sql
+9. history.Trans_System_Health_Archive.sql
+10. history.Trans_System_Health_Instance_Archive.sql
+11. history.Trans_System_Health_Storage_Archive.sql
+
+Update Database
+12. UpdateData.sql

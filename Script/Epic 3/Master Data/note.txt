@@ -1,0 +1,4 @@
+SET @SuperAdminEmail='abcxyz@truecommerce.com' 
+This is an user who will have admin permission.
+On QC Environment: QC will provide the email with admin role(QC will update it).
+On Staging and Production: anh Tri is the admin role. (Operation system team will update it.)

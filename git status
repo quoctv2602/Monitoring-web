@@ -1,0 +1,502 @@
+[33mcommit 3f1100f78b39778ce87418dc1da0f1108906f008[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: quoc.tran <quoc.tran@truecommerce.com>
+Date:   Tue Nov 22 09:31:11 2022 +0700
+
+    [skip ci] Add menu Setting List,Node Management
+
+[33mcommit d4274ccac9e46ef46409e9860dcd1046e72513b2[m
+Author: Tấn Lê <Tan.Le@Truecommerce.com>
+Date:   Mon Nov 21 04:13:47 2022 +0000
+
+    [skip ci] Updated appsettings.xml
+
+[33mcommit 829b7bf86c5966926a7fdc1fa1c1ee8dc42b11b6[m
+Author: Lê Tấn <tan.le@truecommerce.com>
+Date:   Mon Nov 21 11:13:05 2022 +0700
+
+    [skip ci] add-ins History Archive to source monitoring_notification
+
+[33mcommit 0f87450e1b1b88b636104c87b0d788e848972d97[m
+Author: Lê Tấn <tan.le@truecommerce.com>
+Date:   Mon Nov 21 08:44:36 2022 +0700
+
+    [skip ci] Run HistoryArchive 2022-11-21
+
+[33mcommit 2fba28fe91da8bd99eaccf2a12a43be99e4156ea[m
+Author: Hoa Nguyen <Hoa.V.Nguyen@truecommerce.com>
+Date:   Fri Nov 18 14:01:34 2022 +0700
+
+    [skip ci] Fix bug daily report does not have hyperlink on link web in case urgent
+
+[33mcommit 99b2536ae5692e2881c512bea71b9a360bfbfb3c[m
+Author: Lê Tấn <tan.le@truecommerce.com>
+Date:   Thu Nov 17 16:38:06 2022 +0700
+
+    [skip ci]  Run Code Cleanup
+
+[33mcommit 4301b43d0f045bd0a1de7af4afb62a9f49aa2323[m
+Author: Tấn Lê <Tan.Le@Truecommerce.com>
+Date:   Thu Nov 17 09:19:56 2022 +0000
+
+    Deleted MoveDataToTableBK.sql
+
+[33mcommit af8fc2ca3d691020a9924fa087023aa05ec24421[m
+Author: Lê Tấn <tan.le@truecommerce.com>
+Date:   Thu Nov 17 15:14:05 2022 +0700
+
+    [skip ci] add platform history Archive database
+
+[33mcommit f4c9902f4922c544ca4e774040a4987916a62958[m
+Author: Hoa Nguyen <Hoa.V.Nguyen@truecommerce.com>
+Date:   Thu Nov 17 15:04:26 2022 +0700
+
+    [skip ci] Task 183880
+
+[33mcommit a9024ddad82b9488f1e95e94c0694446936ace76[m
+Author: Hoa Nguyen <Hoa.V.Nguyen@truecommerce.com>
+Date:   Thu Nov 17 10:41:40 2022 +0700
+
+    [skip ci] Fix bug 184062
+
+[33mcommit e4091a8081f8c08a8187cff80e4644063d6a9e41[m
+Author: Hoa Nguyen <Hoa.V.Nguyen@truecommerce.com>
+Date:   Thu Nov 17 10:34:22 2022 +0700
+
+    [skip ci] Fix bug 184062
+
+[33mcommit 3f7665cdb59f0f61a1c08c467f2df338c7e3ab49[m
+Author: Lê Tấn <tan.le@truecommerce.com>
+Date:   Thu Nov 17 08:50:50 2022 +0700
+
+    [skip ci] fix bug ID 183903
+
+[33mcommit 34fa75aa2a45bd9e2f6b4b78fa1a6d0846dd28f9[m
+Merge: 8b2da00 856e910
+Author: Lê Tấn <tan.le@truecommerce.com>
+Date:   Thu Nov 17 08:16:20 2022 +0700
+
+    Merge branch 'main' of https://truecommercevso.visualstudio.com/CIP%20Monitoring%20Tool/_git/CIP%20Monitoring%20Tool
+
+[33mcommit 8b2da000e33b8e4c749693a07efcfca0ee88c26a[m
+Author: Lê Tấn <tan.le@truecommerce.com>
+Date:   Thu Nov 17 08:15:47 2022 +0700
+
+    [skip ci] fix bug id 183903
+    
+    [Defect]_[Daily email report]_Status in daily email is different with Status in email template
+
+[33mcommit 856e910d19185a221c07248b33893044b10f2320[m
+Author: Hoa Nguyen <Hoa.V.Nguyen@truecommerce.com>
+Date:   Wed Nov 16 16:05:00 2022 +0700
+
+    [skip ci] Task 182473
+
+[33mcommit 11124a65eaf781d50a9c04b62b088074c15bd16e[m
+Author: Hoa Nguyen <Hoa.V.Nguyen@truecommerce.com>
+Date:   Wed Nov 16 15:59:44 2022 +0700
+
+    [skip ci] Task: 182473
+
+[33mcommit 95205a22af915b1921f0ae2b05147f26cc8f54f5[m
+Author: Tấn Lê <Tan.Le@Truecommerce.com>
+Date:   Wed Nov 16 07:51:15 2022 +0000
+
+    Updated README.md
+
+[33mcommit df642716328edb9e32b5f40e2da54ce93a5ee7a3[m
+Author: Lê Tấn <tan.le@truecommerce.com>
+Date:   Wed Nov 16 14:42:14 2022 +0700
+
+    [skip ci] add alter table Trans_Message_Log
+
+[33mcommit 79dffe0f4456f600b7ec9d6f4fec654f0a400813[m
+Author: Lê Tấn <tan.le@truecommerce.com>
+Date:   Wed Nov 16 14:14:49 2022 +0700
+
+    [skip ci] alter table add column Year, Month, Quarter, Week, DayofYear, Date
+    
+    dbo.Trans_Data_Health, dbo.Trans_Message_Log, dbo.Trans_System_Health, dbo.Trans_System_Health_Instance, dbo.Trans_System_Health_Storage
+
+[33mcommit 2a96bc1a046e0e55dc9a474d8c01121b6ac165de[m
+Author: Lê Tấn <tan.le@truecommerce.com>
+Date:   Wed Nov 16 11:28:36 2022 +0700
+
+    [skip ci] update clear code test
+
+[33mcommit f79bf3ffcf7a6558d0e289913d8af6673e6e754a[m
+Author: Lê Tấn <tan.le@truecommerce.com>
+Date:   Wed Nov 16 11:22:14 2022 +0700
+
+    [skip si] commit test in vs studio 2022
+    
+    Related Work Items: #183748
+
+[33mcommit a2b7480f877892c9c36551ef4f8ae7a35e156b36[m
+Author: Lê Tấn <tan.le@truecommerce.com>
+Date:   Wed Nov 16 11:21:06 2022 +0700
+
+    [skip ci] test commit add work item *183748
+
+[33mcommit 9dfaa150adc06b5534b1b57c9d4f12c7b6e4a83c[m
+Author: Lê Tấn <tan.le@truecommerce.com>
+Date:   Wed Nov 16 11:16:05 2022 +0700
+
+    [skip ci] fix code get data current time Notifications.DAL/SQLStatements.cs and trycatch value service nothing
+
+[33mcommit 50efd9e5272b3021adb013948094e573fe8aa33e[m
+Merge: cf63915 a11b4a3
+Author: Hoa Nguyen <Hoa.V.Nguyen@truecommerce.com>
+Date:   Tue Nov 15 08:31:42 2022 +0000
+
+    Merged PR 13531: [skip ci] Fix bug 183742
+    
+    [skip ci] Fix bug 183742
+    
+    Related work items: #183742
+
+[33mcommit a11b4a363abcf5d050b50a6c62a6b84bcfed6ce4[m[33m ([m[1;31morigin/dev-183742[m[33m)[m
+Author: Hoa Nguyen <Hoa.V.Nguyen@truecommerce.com>
+Date:   Tue Nov 15 15:29:33 2022 +0700
+
+    [skip ci] Fix bug 183742
+
+[33mcommit cf63915588822670f1dea17facd1a92632036d21[m
+Author: Thuan.V.Vo <Thuan.V.Vo@truecommerce.com>
+Date:   Tue Nov 15 15:02:01 2022 +0700
+
+    Update sql statement : add condition service status
+
+[33mcommit 66ac9e30ff63521a99e8a74a05316b6c75e8591c[m
+Author: Lê Tấn <tan.le@truecommerce.com>
+Date:   Tue Nov 15 11:08:38 2022 +0700
+
+    [skip ci] ORDER BY CreatedDate list mail report
+
+[33mcommit c853b643c4289c11b395063b904786da350f5a59[m
+Author: Lê Tấn <tan.le@truecommerce.com>
+Date:   Tue Nov 15 09:23:18 2022 +0700
+
+    [skip ci] update code
+
+[33mcommit dd344c75f1583d4a7e1fd59983b2ba063f2b9a1c[m
+Merge: 5efd929 eb8177b
+Author: Hoa Nguyen <Hoa.V.Nguyen@truecommerce.com>
+Date:   Tue Nov 15 02:06:02 2022 +0000
+
+    Merged PR 13530: [skip ci] test git
+    
+    [skip ci] test git
+    
+    Related work items: #182473
+
+[33mcommit eb8177bb181db1f794bc2fdaf14c16b7c41f72c8[m[33m ([m[1;31morigin/Dev-182473[m[33m)[m
+Author: Hoa Nguyen <Hoa.V.Nguyen@truecommerce.com>
+Date:   Tue Nov 15 09:03:35 2022 +0700
+
+    [skip ci] test git
+
+[33mcommit 5efd9298b0482e0e095631085cff971211136888[m
+Author: quoc.tran <quoc.tran@truecommerce.com>
+Date:   Mon Nov 14 15:40:29 2022 +0700
+
+    [skip ci] add page document and fix oder by threshold
+
+[33mcommit 7f0ba2418fa0a8aaa5dc3f880fbc00746d506105[m
+Author: Hoa Nguyen <Hoa.V.Nguyen@truecommerce.com>
+Date:   Mon Nov 14 13:46:31 2022 +0700
+
+    [skip ci] Fix bug:183483, hide column Instances in list Services of page System Health Dashboard
+
+[33mcommit 103529b77f6d9db8ffd0ca47fada4cb2edcd0372[m
+Author: Lê Tấn <tan.le@truecommerce.com>
+Date:   Mon Nov 14 13:35:32 2022 +0700
+
+    [skip ci] update template3.html and template5.html
+
+[33mcommit b52a7843c584732934d7122030b66c1cc18352c9[m
+Author: Lê Tấn <tan.le@truecommerce.com>
+Date:   Mon Nov 14 11:45:41 2022 +0700
+
+    [skip ci] update template5.html
+
+[33mcommit 2e377ce156bedc80e5353f96569e877de2eb1ecc[m
+Author: Thuan Vo <Thuan.V.Vo@truecommerce.com>
+Date:   Fri Nov 11 16:52:14 2022 +0700
+
+    [skip ci] Set violationService value
+
+[33mcommit bc018bb6c9a9d2b87b187b8669533ac8336482e5[m
+Author: Lê Tấn <tan.le@truecommerce.com>
+Date:   Mon Nov 14 09:05:10 2022 +0700
+
+    [skip ci] fix code datacontext
+
+[33mcommit 303967b0aae1566f2f37cd3bd454bce2c9841301[m
+Merge: 6f9f3a5 2b6adaf
+Author: Lê Tấn <tan.le@truecommerce.com>
+Date:   Mon Nov 14 08:07:41 2022 +0700
+
+    Merge branch 'main' of https://truecommercevso.visualstudio.com/CIP%20Monitoring%20Tool/_git/CIP%20Monitoring%20Tool
+
+[33mcommit 6f9f3a5cfcf054550089adadf808bb8c0c90cdf0[m
+Author: Lê Tấn <tan.le@truecommerce.com>
+Date:   Mon Nov 14 08:07:30 2022 +0700
+
+    [skip ci] check error Nothing Process Time EDItoASCII and Shared Storage Running Time
+
+[33mcommit 2b6adafe78ea1c861eb06c3c5e176e7261725249[m
+Author: Hoa Nguyen <Hoa.V.Nguyen@truecommerce.com>
+Date:   Fri Nov 11 17:31:05 2022 +0700
+
+    [skip ci] Add missing file
+
+[33mcommit 6fcba62b1a4a4e2c9cc778cfb30b4b9e0f9ba723[m
+Author: Hoa Nguyen <Hoa.V.Nguyen@truecommerce.com>
+Date:   Fri Nov 11 17:25:33 2022 +0700
+
+    [skip ci] Fix bug:183470,183471,183486
+
+[33mcommit 5fbe711b9cdf8e492ed2e2b3ae6c6433084bc12f[m
+Author: Tấn Lê <Tan.Le@Truecommerce.com>
+Date:   Fri Nov 11 08:39:32 2022 +0000
+
+    Deleted dbo.Alter_Trans_System_Health.sql
+
+[33mcommit 77737811f78264fe448b9caaaf005e0a954f85c7[m
+Author: Lê Tấn <tan.le@truecommerce.com>
+Date:   Fri Nov 11 15:39:06 2022 +0700
+
+    [skip ci]
+
+[33mcommit 77f0b31dc7ccb79fa8b46abeaf6caa39dfdebee7[m
+Author: Tấn Lê <Tan.Le@Truecommerce.com>
+Date:   Fri Nov 11 08:36:22 2022 +0000
+
+    Updated dbo.Alter_Trans_System_Health.sql
+
+[33mcommit f2e4d8b54a6156feb7ef378df69533e33bb82fd8[m
+Author: Lê Tấn <tan.le@truecommerce.com>
+Date:   Fri Nov 11 15:25:25 2022 +0700
+
+    [skip ci]
+
+[33mcommit b86226093193563543919a9f6739f61e32df1f63[m
+Merge: 410b247 7042613
+Author: Lê Tấn <tan.le@truecommerce.com>
+Date:   Fri Nov 11 15:23:41 2022 +0700
+
+    Merge branch 'main' of https://truecommercevso.visualstudio.com/CIP%20Monitoring%20Tool/_git/CIP%20Monitoring%20Tool
+
+[33mcommit 410b247941d1f00df976e98dcd08e517c53f7232[m
+Author: Lê Tấn <tan.le@truecommerce.com>
+Date:   Fri Nov 11 15:23:29 2022 +0700
+
+    [skip ci]
+
+[33mcommit 70426137488db5c09bbb57c215d18cc4a3fcabbb[m
+Author: Thuan.V.Vo <Thuan.V.Vo@truecommerce.com>
+Date:   Fri Nov 11 00:23:01 2022 -0800
+
+    [skip ci] un command alert
+
+[33mcommit ebcee0580c1e868f997aaf286b09706df9d39c84[m
+Merge: d1d940c 20560b5
+Author: Thuan.V.Vo <Thuan.V.Vo@truecommerce.com>
+Date:   Fri Nov 11 00:20:57 2022 -0800
+
+    Merge branch 'main' of https://truecommercevso.visualstudio.com/_git/CIP%20Monitoring%20Tool
+
+[33mcommit d1d940c6e779f6281c693307f243ebaad5400624[m
+Author: Thuan.V.Vo <Thuan.V.Vo@truecommerce.com>
+Date:   Fri Nov 11 00:20:09 2022 -0800
+
+    [skip ci] Implement the service alert feature
+
+[33mcommit 20560b5335e12649aa3cb795b6a45d4d49872df8[m
+Author: Tấn Lê <Tan.Le@Truecommerce.com>
+Date:   Fri Nov 11 07:02:12 2022 +0000
+
+    Updated dbo.Alter_Trans_System_Health.sql
+
+[33mcommit e0ed47fdff7c47375defe3722c983e07e8d847ef[m
+Author: Lê Tấn <tan.le@truecommerce.com>
+Date:   Fri Nov 11 13:32:41 2022 +0700
+
+    [skip ci] add kpi to report daily
+
+[33mcommit ce56f66ff498c617e347f5099867acaed5e10d43[m
+Author: Lê Tấn <tan.le@truecommerce.com>
+Date:   Fri Nov 11 11:20:07 2022 +0700
+
+    [skip ci]
+
+[33mcommit 6978d9d520d2e0375ac6f8cd209de7bc3b7dcf60[m
+Author: Lê Tấn <tan.le@truecommerce.com>
+Date:   Fri Nov 11 11:16:06 2022 +0700
+
+    [skip ci]
+
+[33mcommit fc7f99bdefa5842b24e21e05012eb6487ccbce18[m
+Author: Lê Tấn <tan.le@truecommerce.com>
+Date:   Fri Nov 11 11:09:22 2022 +0700
+
+    [skip ci]
+
+[33mcommit da5c2a726b98a2eb83b0a82f9e7a0748d77b7978[m
+Author: Lê Tấn <tan.le@truecommerce.com>
+Date:   Fri Nov 11 11:05:19 2022 +0700
+
+    [skip ci]
+
+[33mcommit 73c9216bd6cc6b576e9e37b2881d5c79be6f57a6[m
+Merge: ced2809 cc066c2
+Author: Lê Tấn <tan.le@truecommerce.com>
+Date:   Fri Nov 11 11:04:54 2022 +0700
+
+    [skip ci]
+    Merge branch 'main' of https://truecommercevso.visualstudio.com/CIP%20Monitoring%20Tool/_git/CIP%20Monitoring%20Tool
+    
+    # Conflicts:
+    #       Monitoring_Notifications/Notifications.Worker/Jobs/NotificationJob.cs
+
+[33mcommit ced2809d0e0ef7f2c9302b517992dbd32091f6bc[m
+Author: Lê Tấn <tan.le@truecommerce.com>
+Date:   Fri Nov 11 11:00:41 2022 +0700
+
+    [skip ci]
+
+[33mcommit 63a4f3e07267fae644df6652f51a95b83bfb2277[m
+Author: Lê Tấn <tan.le@truecommerce.com>
+Date:   Fri Nov 11 11:00:15 2022 +0700
+
+    [skip ci]
+
+[33mcommit f137143b255bdaf80afd9b35194843389968d9ca[m
+Author: Lê Tấn <tan.le@truecommerce.com>
+Date:   Fri Nov 11 10:54:51 2022 +0700
+
+    [skip ci]
+
+[33mcommit 2eb70d80b16b8597ee1ffb7a70e129e4be8e161f[m
+Author: Lê Tấn <tan.le@truecommerce.com>
+Date:   Fri Nov 11 10:54:20 2022 +0700
+
+    [skip ci]
+
+[33mcommit cc066c2b8e2798536b4c98fcf099d08e2a0ea6fb[m
+Author: Thuan.V.Vo <Thuan.V.Vo@truecommerce.com>
+Date:   Thu Nov 10 19:30:01 2022 -0800
+
+    [skip ci] Implement the send service violation feature
+
+[33mcommit 5e2f875331e93f23de81776b8638954aa56bb5e8[m
+Merge: b27efe0 640110c
+Author: Hoa Nguyen <Hoa.V.Nguyen@truecommerce.com>
+Date:   Thu Nov 10 17:08:19 2022 +0700
+
+    Merge branch 'main' of https://truecommercevso.visualstudio.com/CIP%20Monitoring%20Tool/_git/CIP%20Monitoring%20Tool
+
+[33mcommit b27efe012227e1cace4d76e05186e3f6505b1241[m
+Author: Hoa Nguyen <Hoa.V.Nguyen@truecommerce.com>
+Date:   Thu Nov 10 17:07:49 2022 +0700
+
+    [skip ci] Hide button Settings in System Health Dashboard
+
+[33mcommit 640110c219b75a4cb48aacfef7d40fe91fc26c6c[m
+Merge: de6ee1d 7261560
+Author: Lê Tấn <tan.le@truecommerce.com>
+Date:   Thu Nov 10 16:44:02 2022 +0700
+
+    Merge branch 'main' of https://truecommercevso.visualstudio.com/CIP%20Monitoring%20Tool/_git/CIP%20Monitoring%20Tool
+
+[33mcommit de6ee1d964f31ba9b3757c4c581623ebc1f66acc[m
+Author: Lê Tấn <tan.le@truecommerce.com>
+Date:   Thu Nov 10 16:43:52 2022 +0700
+
+    [skip ci] add mail alert FreeDisk,Shared Storage Running Time,Process Time EDItoASCII
+
+[33mcommit 72615602ec0cd453291a8fcd145498355af01f8e[m
+Author: Hoa Nguyen <Hoa.V.Nguyen@truecommerce.com>
+Date:   Thu Nov 10 16:25:45 2022 +0700
+
+    [skip ci] Fix bug 182940
+
+[33mcommit 68a72a5f98b7d590f1553d625943956c5c93fc64[m
+Merge: 58c5fdb e8a8b1b
+Author: Lê Tấn <tan.le@truecommerce.com>
+Date:   Thu Nov 10 15:27:56 2022 +0700
+
+    Merge branch 'main' of https://truecommercevso.visualstudio.com/CIP%20Monitoring%20Tool/_git/CIP%20Monitoring%20Tool
+
+[33mcommit 58c5fdb34782c9cfb2fb44dd4ccd973025627487[m
+Author: Lê Tấn <tan.le@truecommerce.com>
+Date:   Thu Nov 10 15:27:45 2022 +0700
+
+    [skip ci] update mail template by document
+
+[33mcommit e8a8b1b488eedfb37730f3e037609176052835ab[m
+Author: Hoa Nguyen <Hoa.V.Nguyen@truecommerce.com>
+Date:   Thu Nov 10 06:44:12 2022 +0000
+
+    Updated dashboard.component.html
+
+[33mcommit 3ea688e2279a8c926cec138c842104ff609996ea[m
+Author: Lê Tấn <tan.le@truecommerce.com>
+Date:   Thu Nov 10 10:35:00 2022 +0700
+
+    [skip ci] remove UI sprint2, change "Free disk" -> "Free Disk", Unlock sent mail daily report
+
+[33mcommit de596ccbbb0f44c8775b5d433a1db7c0e9f272a7[m
+Author: Lê Tấn <tan.le@truecommerce.com>
+Date:   Thu Nov 10 10:09:52 2022 +0700
+
+    [skip ci] remove UI sprint2
+
+[33mcommit 8f97e34b60977a07143e517b4e42d3b87abd2f28[m
+Author: Lê Tấn <tan.le@truecommerce.com>
+Date:   Thu Nov 10 09:24:20 2022 +0700
+
+    [skip ci] check error null to string
+
+[33mcommit 1c386dd370a622b640ee2e73d5fecb27e2c12412[m
+Author: Hoa Nguyen <Hoa.V.Nguyen@truecommerce.com>
+Date:   Wed Nov 9 14:34:22 2022 +0700
+
+    [skip ci] change getting time by RequestTime to CreatedDate System Health Dashboard
+
+[33mcommit b7a0dd2b21b09b57aa6e4f7077e8d1bca8253ae7[m
+Merge: 9c5457e af00a64
+Author: Lê Tấn <tan.le@truecommerce.com>
+Date:   Wed Nov 9 14:27:39 2022 +0700
+
+    Merge branch 'main' of https://truecommercevso.visualstudio.com/CIP%20Monitoring%20Tool/_git/CIP%20Monitoring%20Tool
+
+[33mcommit 9c5457ee8232d4f563037a669795eedd79e0c771[m
+Author: Lê Tấn <tan.le@truecommerce.com>
+Date:   Wed Nov 9 14:27:17 2022 +0700
+
+    [skip ci] update CreateDate
+
+[33mcommit af00a6483138ac2abc7e391cf8abc0790ac324ab[m
+Author: thinhdoan <thinhdoan@gmail.com>
+Date:   Wed Nov 9 14:22:28 2022 +0700
+
+    Modified CPUViolationStatus != 2 for second time of notification
+
+[33mcommit 5d54e7b27f7e1790491af79cc851ef9d68549ead[m
+Author: Hoa Nguyen <Hoa.V.Nguyen@truecommerce.com>
+Date:   Wed Nov 9 13:14:27 2022 +0700
+
+    [skip ci] Fix bug system health dashboard BugId: 182949, 182954, 182928, 182962, 182961, 182956,182931, 182933, 182934, 182942
+
+[33mcommit 273076125f3ea50e76247315b095b97cf74c90fb[m
+Author: quoc.tran <quoc.tran@truecommerce.com>
+Date:   Wed Nov 9 11:04:29 2022 +0700
+
+    update code node setting edit
+
+[33mcommit 8e2161fc1fdb4e9caf4ae292c3cf91e2e67c3793[m
+Author: Lê Tấn <tan.le@truecommerce.com>
+Date:   Tue Nov 8 15:27:16 2022 +0700
+
+    [skip ci] no run pipline

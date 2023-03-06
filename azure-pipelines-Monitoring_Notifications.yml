@@ -1,0 +1,44 @@
+# ASP.NET Core
+# Build and test ASP.NET Core projects targeting .NET Core.
+# Add steps that run tests, create a NuGet package, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger:
+- main
+
+pool:
+  vmImage: 'windows-2022'
+
+variables:
+  solution: 'Monitoring_Notifications/Notifications.Worker/Monitoring_Notifications.csproj'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+  ArtifactName: 'MonitoringNotificationService'
+
+steps:
+- task: DotNetCoreCLI@2
+  displayName: 'Build $(ArtifactName)'
+  name: BuildBackendProject
+  inputs:
+    command: 'build'
+    projects: '$(solution)'
+    arguments: '--configuration $(buildConfiguration)'
+
+
+- task: DotNetCoreCLI@2
+  displayName: 'Public $(ArtifactName)'
+  name: PublicBackendProject
+  inputs:
+    command: 'publish'
+    publishWebProjects: false
+    projects: '$(solution)'
+    arguments: '-o $(Build.ArtifactStagingDirectory)/$(ArtifactName)'
+    zipAfterPublish: true
+    modifyOutputPath: true
+    
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/$(ArtifactName)'
+    ArtifactName: $(ArtifactName)
+    publishLocation: 'Container'
+

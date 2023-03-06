@@ -1,0 +1,6 @@
+Create Monitoring database before you run these scripts
+CREATE DATABASE Monitoring; 
+Run scripts order by up to down.
+
+change item <-- QCs Team edit> according to your environment by file path ~/Master Data/MasterData.sql
+run script masterdata.sql to create a basic data

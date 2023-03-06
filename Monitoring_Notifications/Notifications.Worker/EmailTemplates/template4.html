@@ -1,0 +1,30 @@
+﻿<html>
+<head>
+    <style>
+        table {
+            
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+    Dear {{Alias}},
+    <br /><br />
+    This statistic email is from system to report all alerts that sent to end-users in day.
+    <br /><br />
+    {{ContentTable}}
+    <br />
+    Refer to the statistic of yesterday {{date}} average
+    {{StatisticsTable}}
+    <br /><br />
+    Thank you for using Monitoring Tool<br />
+    Monitoring Tool site:  <a href="{{NotificationMonitoringURL}}">{{NotificationMonitoringURL}}</a>
+</body>
+</html>

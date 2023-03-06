@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+	<appSettings>
+		<!-- Setting for windows service-->
+		<NumThreadsForJob>#{NotificationNumThreadsForJob}#</NumThreadsForJob>
+		<NotificationJobCron>#{NotificationJobCron}#</NotificationJobCron>
+		<SummaryReportJobCron>#{NotificationSummaryReportJobCron}#</SummaryReportJobCron>
+		<ArchiveDataJobCron>#{ArchiveDataJobCron}#</ArchiveDataJobCron>
+		<DayCount>#{DayCount}#</DayCount>
+		<MaxRetryDBCount>#{NotificationMaxRetryDBCount}#</MaxRetryDBCount>
+		<MaxDelayRetryingDB>#{NotificationMaxDelayRetryingDB}#</MaxDelayRetryingDB>
+		<CommandTimeout>120</CommandTimeout>
+		<EmailRetryCount>#{NotificationEmailRetryCount}#</EmailRetryCount>
+		<EmailDelayRetryMiliSeconds>1000</EmailDelayRetryMiliSeconds>
+		<HoursOfYesterday>23</HoursOfYesterday>
+		<NotificationMonitoringURL>#{NotificationMonitoringURL}#</NotificationMonitoringURL>
+	</appSettings>
+	<databases>
+		<NotificationContext>#{MonitoringDB}#</NotificationContext>
+	</databases>
+</configuration>
