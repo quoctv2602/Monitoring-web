@@ -1,0 +1,11 @@
+﻿{
+  "profiles": {
+    "Monitoring_wsGetHealth": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

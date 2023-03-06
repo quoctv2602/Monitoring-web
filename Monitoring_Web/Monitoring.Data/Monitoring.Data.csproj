@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Configurations\SysEnvironmentConfiguration.cs" />
+    <Compile Remove="Configurations\SysMonitoringConfiguration.cs" />
+    <Compile Remove="IRepository\IMonitoringSystemRepository.cs" />
+    <Compile Remove="MonitoringContextFactory.cs" />
+    <Compile Remove="Repository\MonitoringSystemRepository.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="appsettings.Development.json" />
+    <None Remove="appsettings.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="6.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.10" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Monitoring.Model\Monitoring.Model.csproj" />
+    <ProjectReference Include="..\Monitoring_Common\Monitoring_Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Configurations\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="DiCentral.RetrySupport.6.0">
+      <HintPath>..\..\Libraries\DiCentral.RetrySupport.6.0.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

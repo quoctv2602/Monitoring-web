@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="IService\IMonitoringSystemService.cs" />
+    <Compile Remove="MonitoringSystemService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.DataProtection.Abstractions" Version="6.0.13" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Monitoring.Data\Monitoring.Data.csproj" />
+    <ProjectReference Include="..\Monitoring.Model\Monitoring.Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="DiCentral.RetrySupport.6.0">
+      <HintPath>..\..\Libraries\DiCentral.RetrySupport.6.0.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
