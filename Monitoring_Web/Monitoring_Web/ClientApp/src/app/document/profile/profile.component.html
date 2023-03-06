@@ -1,0 +1,123 @@
+<main id="main" class="main">
+  <div class="animated fadeIn">
+    <div class="card">
+      <div class="card-header">
+        <div class="form-row">
+          <div class="col-12 col-lg-12">
+            <ul class="nav nav-tabs nav-tabs-bordered">
+              <li class="nav-item">
+                <button
+                  class="nav-link active"
+                  data-bs-toggle="tab" data-bs-target="#profile"
+                  style="font-weight: bold"
+                >
+                  Profile
+                </button>
+              </li>
+              <li class="nav-item">
+                <button
+                  style="font-weight: bold"
+                  class="nav-link"
+                  data-bs-toggle="tab" data-bs-target="#document"
+                >
+                  Document
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="tab-content">
+        <div class="card-body tab-pane active"  id="profile">
+       
+          <div class="form-group row">
+            <b>Information</b>
+            <hr />
+            <div class="form-group row mb-1">
+              <label style="text-align: center;" class="col-md-2 col-form-label" for="hf-password"
+                >ID</label
+              >
+              <div class="col-md-6">
+                <input
+                  type="text"
+                  name="id"
+                  maxlength="200"
+                  class="form-control"
+                />
+              </div>
+            </div>
+            <div class="form-group row mb-1">
+              <label style="text-align: center;" class="col-md-2 col-form-label" for="hf-password"
+                >Status</label
+              >
+              <div class="col-md-6">
+                <input
+                  type="text"
+                  name="status"
+                  maxlength="200"
+                  class="form-control"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <b>Detail</b>
+            <hr />
+            <div class="form-group row mb-1">
+              <label style="text-align: center;" class="col-md-2 col-form-label" for="hf-password"
+                >Company Type</label
+              >
+              <div class="col-md-4">
+               <select class="form-control form-select" name="CompanyType">
+                <option value="0" disabled>--All--</option>
+                <option value="1">Customer</option>
+               </select>
+              </div>
+            </div>
+            <div class="form-group row mb-1">
+              <label style="text-align: center;" class="col-md-2 col-form-label" for="hf-password"
+                >Email</label
+              >
+              <div class="col-md-7">
+                <input
+                  type="text"
+                  name="Email"
+                  maxlength="200"
+                  class="form-control"
+                />
+              </div>
+            </div>
+            <div class="form-group row mb-5">
+              <label style="text-align: center;" class="col-md-2 col-form-label" for="hf-password"
+                >Notes</label
+              >
+              <div class="col-md-7">
+                <textarea
+                  type="text"
+                  name="notes"
+                  maxlength="200"
+                  class="form-control"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+          <div  class="form-group row">
+            <div class="col-md-7">
+            </div>
+            <div class="col-md-2" style="text-align: right;">
+              <button
+              type="button"
+              id="btnupdate"
+              class="btn btn-sm btn-success"
+            >
+              <i class="fa fa-check"></i>Update Notes
+            </button>
+            </div>
+           
+          </div>
+        </div>
+          <app-document class="card-body tab-pane"  id="document"></app-document>
+      </div>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,40 @@
+PrintLoopLevel,SegID,El#,SubEl#,table#,seq#,desc
+38
+0,AN,DATA,1,ST,02,01,1,10,Transaction #
+0,ID,DATA,1,BFR,01,01,1,20,Transaction Set Purpose,3,00=Original,04=Change,05=Replacement
+0,AN,DATA,1,BFR,02,01,1,20,Reference #
+0,AN,DATA,1,BFR,03,01,1,20,Release #
+0,ID,DATA,1,BFR,04,01,1,20,Schedule Type,2,DL=Delivery Based,SH=Shipment Based
+0,ID,DATA,1,BFR,05,01,1,20,Schedule Qty Type,1,A=Actual Discrete Quantities
+0,DT,DATA,1,BFR,06,01,1,20,Forecast Starting Date
+0,DT,DATA,1,BFR,08,01,1,20,Data Generated Date
+0,AN,FORMULA_1,I0==S19,FI1,,2,REF,01,01,1,50,REF,02,01,1,50,Division ID #
+0,AN,FORMULA_1,I0==SSC,FI1,,2,PER,01,01,1,60,PER,02,01,1,60,Schedule Contact Name
+0,AN,FORMULA_1,I0==SEM,FI1,,2,PER,03,01,1,60,PER,04,01,1,60,Schedule Contact Email
+1,ID,DATA,1,LIN,02,01,2,10,Product ID Type1,5,BP=Buyer Part Number,VP=Vendor Part Number,PD=Part Description,PO=Purchase Order Number,PD=Part Description
+1,AN,DATA,1,LIN,03,01,2,10,Product ID1
+1,ID,DATA,1,LIN,04,01,2,10,Product ID Type2,5,BP=Buyer Part Number,VP=Vendor Part Number,PD=Part Description,PO=Purchase Order Number,PD=Part Description
+1,AN,DATA,1,LIN,05,01,2,10,Product ID2
+1,AN,DATA,1,SLN,01,01,2,300,SubLn #
+1,R,DATA,1,SLN,06,01,2,300,Unit Price
+1,R,DATA,1,FST,01,01,2,410,Forecast Qty
+1,ID,DATA,1,FST,02,01,2,410,Forecast Type,4,A=Immediate,C=Firm,D=Planning,Q=Order Release Authorization
+1,ID,DATA,1,FST,03,01,2,410,Forecast Timing Type,2,D=Discrete,M=Monthly Bucket (Calendar Months)
+1,DT,DATA,1,FST,04,01,2,410,Forecast Date
+1,R,FORMULA_1,I0==S87,FI1,,2,SHP,01,01,2,470,SHP,02,01,2,470,Last Received Qty
+1,DT,FORMULA_1,I0==S87,FI1,,2,SHP,01,01,2,470,SHP,04,01,2,470,Last Received Date
+1,R,FORMULA_1,I0==SIQ,FI1,,2,SHP,01,01,2,470,SHP,02,01,2,470,In-Transit Qty
+1,DT,FORMULA_1,I0==SIQ,FI1,,2,SHP,01,01,2,470,SHP,04,01,2,470,In-Transit Date
+0,AN,FORMULA_ADDRESS,ST,2,N1,01,01,1,230,N1,02,01,1,230,Ship to Name
+0,AN,FORMULA_ADDRESS,ST,2,N1,01,01,1,230,N1,04,01,1,230,Ship to Code
+0,AN,FORMULA_ADDRESS,ST,2,N1,01,01,1,230,N2,01,01,1,240,Ship to Additional Name
+0,AN,FORMULA_ADDRESS,ST,2,N1,01,01,1,230,N3,01,01,1,250,Ship to Address
+0,AN,FORMULA_ADDRESS,ST,2,N1,01,01,1,230,N3,02,01,1,250,Ship to Address2
+0,AN,FORMULA_ADDRESS,ST,2,N1,01,01,1,230,N4,01,01,1,260,Ship to City
+0,AN,FORMULA_ADDRESS,ST,2,N1,01,01,1,230,N4,02,01,1,260,Ship to State
+0,AN,FORMULA_ADDRESS,ST,2,N1,01,01,1,230,N4,03,01,1,260,Ship to ZipCode
+0,AN,FORMULA_ADDRESS,ST,2,N1,01,01,1,230,N4,04,01,1,260,Ship to Country Code
+0,AN,DATA,1,BFR,11,01,1,20,PO #
+1,ID,DATA,1,SLN,05,01,2,300,Qty UOM,10,CA=Case,CT=Carton,CS=cassette,BG=Bag,BX=Box,EA=Each,PC=Piece,PK=Package,ST=Set,UN=Unit
+1,ID,DATA,1,LIN,06,01,2,10,Product ID Type3,5,BP=Buyer Part Number,VP=Vendor Part Number,PD=Part Description,PO=Purchase Order Number,PD=Part Description
+1,AN,DATA,1,LIN,07,01,2,10,Product ID3

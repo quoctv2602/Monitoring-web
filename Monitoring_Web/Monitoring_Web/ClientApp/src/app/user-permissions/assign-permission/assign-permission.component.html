@@ -1,0 +1,61 @@
+<div class="main" id="main">
+  <form>
+    <div style="width:95%!important" *ngIf="isLoading" class="line-loading position-absolute "></div>
+    <div class="card">
+      <div class="card-header d-flex align-items-center">
+        <div>
+          <h5 class="card-title">Assign Permission</h5>
+          <br>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" [(ngModel)]="isAssignAll"
+              [ngModelOptions]="{standalone: true}" (change)="onChangeAssignAll()" id="assignAll">
+            <label class="form-check-label" for="flexCheckChecked">
+              Assign All
+            </label>
+          </div>
+
+        </div>
+
+
+      </div>
+      <div class="card-body">
+        <div class="row" *ngFor="let item of permission">
+          <div class="row">
+            <div class="col-6">
+              <h6><b>{{item.pageName}}</b></h6>
+            </div>
+            <div class="col-6">
+              <div class="form-check">
+                <input class="form-check-input" (change)="onChangeSelectAllByMenu(item)" type="checkbox"
+                  [(ngModel)]="item.isSelected" [ngModelOptions]="{standalone: true}" id="flexCheckChecked">
+              </div>
+            </div>
+          </div>
+
+          <hr style="width: 98% !important;margin-left: 10px;opacity: inherit;height: 1px;">
+          <div class="row" *ngFor="let action of item.actions">
+            <div class="col-6">
+              <span>{{action.actionName}}</span>
+            </div>
+            <div class="col-6">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" (change)="onChangeSelectByAction(item,action)"
+                  [(ngModel)]="action.isSelected" [ngModelOptions]="{standalone: true}" id="flexCheckChecked">
+              </div>
+            </div>
+          </div>
+          <p></p>
+        </div>
+      </div>
+      <div class="card-footer" style="text-align: right;">
+        <button *ngIf="showSaveButton" type="button" (click)="handleSavePermission()" style="margin-right:20px"
+          class="btn btn-sm btn-dark min-w-100">
+          Save
+        </button>
+        <button type="button" class="btn btn-sm btn-secondary min-w-100" (click)="onClickCancel()">
+          Cancel
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

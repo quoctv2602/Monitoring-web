@@ -1,0 +1,61 @@
+<main id="main" class="main">
+  <form [formGroup]="userFormSave">
+    <div style="width:95%!important" *ngIf="isLoading" class="line-loading position-absolute "></div>
+    <div class="card" style="margin-top:20px">
+      <div class="card-header">
+        <h5 class="card-title">{{title}}</h5>
+      </div>
+      <div class="card-body">
+        <div class="row mb-2">
+          <label class="col-md-2 col-form-label col-form-label-sm" for="hf-password">Email <span
+              style="color: red;">*</span></label>
+          <div class="col-md-9">
+            <input type="email" name="Email" maxlength="100" class="form-control form-control-sm" placeholder="Email"
+              formControlName="email" [ngClass]="{
+                'is-invalid': submitted && g['email'].errors,
+                'is-valid':submitted && !g['email'].errors
+              }" />
+            <div *ngIf="submitted && g['email'].errors" class="invalid-feedback">
+              <div *ngIf="g['email'].errors['required'] || g['email'].errors['whitespace']">
+                Email is required
+              </div>
+              <div *ngIf="g['email'].errors['maxlength']">
+                Email max 150 characters
+              </div>
+              <div *ngIf="g['email'].errors['email']">
+                Email address is incorrect format
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-2">
+          <label class="col-md-2 col-form-label col-form-label-sm" for="hf-password">IsAdmin</label>
+          <div class="col-md-9">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" (change)="onChangeIsAdmin()" formControlName="isAdmin"
+                id="isAdmin">
+            </div>
+          </div>
+        </div>
+        <div class="row mb-2" *ngIf="showGroup" f>
+          <label class="col-md-2 col-form-label col-form-label-sm" for="hf-password">Group</label>
+          <div class="col-md-9">
+            <ng-select [multiple]="false" formControlName="groupId" name="groupId">
+              <ng-option *ngFor="let u of listGroups" [value]="u.groupId">{{ u.groupName }}</ng-option>
+            </ng-select>
+          </div>
+        </div>
+
+      </div>
+      <div class="card-footer" style="text-align: right;">
+        <button type="button" (click)="handleSaveUser()" style="margin-right:20px"
+          class="btn btn-sm btn-dark min-w-100">
+          Save
+        </button>
+        <button type="button" class="btn btn-sm btn-secondary min-w-100" (click)="onClickCancel()">
+          Cancel
+        </button>
+      </div>
+    </div>
+  </form>
+</main>

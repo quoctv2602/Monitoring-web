@@ -1,0 +1,129 @@
+
+    <div class="card">
+      <div class="card-body">
+        <form class="form-horizontal">
+          <div class="form-group row">
+            <div class="col-md-2">
+              <label class="col-md-12 col-form-label">From Date</label>
+              <div class="row">
+                <div class="col-md-12">
+                  <input type="date" class="form-control" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <label class="col-md-12 col-form-label">To Date</label>
+              <div class="row">
+                <div class="col-md-12">
+                  <input type="date" class="form-control" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <label class="col-md-12 col-form-label">Document #</label>
+              <div class="row">
+                <div class="col-md-12">
+                  <input type="input" class="form-control" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <label class="col-md-12 col-form-label">Status</label>
+              <div class="row">
+                <div class="col-md-12">
+                  <select class="form-control form-select" name="Status">
+                    <option Value="0" disabled>-- All --</option>
+                    <option value="1">Error</option>
+                    <option value="2">Integration Error</option>
+                    <option value="3">Pending</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="row">
+                <div class="col-md-2" style="margin-top: 42px">
+                  <input type="checkbox" id="checkboxitem" />
+                </div>
+                <label class="col-md-10 col-form-label" style="margin-top: 34px"
+                  >Show All Docs</label
+                >
+              </div>
+            </div>
+            <div class="col-md-2" style="text-align: right; margin-top: 34px">
+              <div class="row pt-1">
+                <button type="button" class="col-md-5 btn btn-sm btn-info me-1">
+                  Reset
+                </button>
+                <button
+                  type="button"
+                  class="col-md-5 btn btn-sm btn-primary me-1"
+                >
+                  Search
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+        <hr />
+
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th class="col-md-2">Transaction Key</th>
+                <th class="col-md-1">DocType</th>
+                <th class="col-md-1">Sender</th>
+                <th class="col-md-1">Receiver</th>
+                <th class="col-md-2">Document</th>
+                <th class="col-md-2">Start Date</th>
+                <th class="col-md-2">End Date</th>
+                <th class="col-md-1">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- <tr
+                *ngFor="
+                  let item of integrationData.listItem
+                    | paginate
+                      : {
+                          itemsPerPage: integrationData.pageSize,
+                          currentPage: integrationData.pageIndex,
+                          totalItems: integrationData.totalRecords
+                        }
+                "
+              >
+                <td style="text-align: center">
+                  <input
+                    type="checkbox"
+                    id="checkboxitem"
+                    [(ngModel)]="item.isCheck"
+                  />
+                </td>
+                <td>{{ item.environmentName }}</td>
+                <td>{{ item.machineName }}</td>
+                <td>{{ item.domain_SystemHealth }}</td>
+                <td>{{ item.createDate | date: "MM/dd/yyyy, HH:mm:ss" }}</td>
+              </tr>
+              <tr *ngIf="integrationData.listItem === null">
+                <td
+                  colspan="100%"
+                  class="table-warning text-center font-weight-bold"
+                >
+                  No Data!
+                </td>
+              </tr> -->
+            </tbody>
+          </table>
+        </div>
+        <div class="d-flex justify-content-left">
+          <!-- <pagination-controls
+            [responsive]="true"
+            previousLabel="Prev"
+            nextLabel="Next"
+            (pageChange)="onTableDataChange($event)"
+          >
+          </pagination-controls> -->
+        </div>
+      </div>
+    </div>

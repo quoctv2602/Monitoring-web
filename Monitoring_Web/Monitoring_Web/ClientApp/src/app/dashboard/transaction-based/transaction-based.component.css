@@ -1,0 +1,49 @@
+.tableFixHead {
+  overflow: auto;
+  height: auto;
+}
+.tableFixHead thead th {
+  position: sticky;
+  top: -2px;
+  z-index: 1;
+}
+.tableFixHead tbody th {
+  position: sticky;
+  left: 0;
+}
+.nav-tabs-bordered .nav-link.active {
+  color: #0c6efc !important;
+}
+
+.line-loading {
+  width: 100%;
+  height: 5px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.line-loading:before {
+  content: "";
+  position: absolute;
+  right: auto;
+  left: 0;
+  height: 100%;
+  background-color: #55cafd;
+  animation: lineLoading 30s forwards infinite linear;
+}
+
+@keyframes lineLoading {
+  0% {
+    right: 100%;
+  }
+
+  50% {
+    right: 0;
+    left: 0;
+  }
+
+  100% {
+    right: 0;
+    left: 100%;
+  }
+}

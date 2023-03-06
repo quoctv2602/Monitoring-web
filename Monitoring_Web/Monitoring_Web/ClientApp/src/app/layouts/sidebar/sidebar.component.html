@@ -1,0 +1,88 @@
+<aside id="sidebar" class="sidebar border-end">
+  <ul class="sidebar-nav" id="sidebar-nav">
+    <li class="nav-item">
+      <a class="nav-link rounded-pill" routerLink="/dashboard" routerLinkActive="active">
+        <i class="bi bi-bar-chart-line-fill"></i><span class="text-truncate">Dashboard</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link rounded-pill collapsed btn-toggle" data-bs-toggle="collapse" data-bs-target="#kpiCollapse"
+        aria-expanded="false">
+        <i class="fa fa-file-text-o"></i><span class="text-truncate">KPI Settings</span>
+      </a>
+      <ul id="kpiCollapse" class="btn-toggle-nav collapse">
+        <li>
+          <a routerLink="/notification" routerLinkActive="active">
+            <span class="text-truncate">Notification Settings</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/integration" routerLinkActive="active">
+            <span class="text-truncate">Node Management</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/settings" routerLinkActive="active">
+            <span class="text-truncate">KPI List</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link rounded-pill" routerLink="/monitoring-reporting-basic" routerLinkActive="active">
+        <i class="bi bi-search"></i><span class="text-truncate">Transactions</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link rounded-pill" routerLink="/user-permission" routerLinkActive="active">
+        <i class="bi bi-person"></i><span class="text-truncate">User Permission</span>
+      </a>
+    </li>
+    <li *ngIf="false" class="nav-item">
+      <a class="nav-link rounded-pill collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+        <i class="bi bi-archive-fill"></i><span class="text-truncate">Monitor Reporting</span><i
+          class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul id="components-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
+        <li>
+          <a routerLink="/pages-report">
+            <i class="bi bi-blockquote-right"></i><span class="text-truncate">Reporting</span>
+          </a>
+        </li>
+        <!-- <li> <a routerLink="/pages-logs"> <i class="bi bi-view-stacked"></i><span>View Logs</span> </a></li>
+            <li> <a routerLink="/pages-data-content"> <i class="bi bi-view-stacked"></i><span>View Data Content</span>
+               </a></li>
+            <li> <a routerLink="/pages-config"> <i class="bi bi-tools"></i><span>View Config</span> </a></li> -->
+      </ul>
+    </li>
+    <li *ngIf="false" class="nav-item">
+      <a class="nav-link" routerLink="/pages-re-process">
+        <i class="bi bi-ui-checks-grid"></i> <span class="text-truncate">Reprocess</span>
+      </a>
+    </li>
+
+    <li *ngIf="false" class="nav-item">
+      <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
+        <i class="bi bi-journal-text"></i><span class="text-truncate">Other Page</span><i
+          class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul id="icons-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
+        <li class="nav-item">
+          <a class="nav-link collapsed" routerLink="/pages-login">
+            <i class="bi bi-box-arrow-in-right"></i> <span>Login</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link collapsed" routerLink="/pages-error404">
+            <i class="bi bi-dash-circle"></i> <span>Error 404</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link collapsed" routerLink="/pages-blank">
+            <i class="bi bi-file-earmark"></i> <span>Blank</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</aside>

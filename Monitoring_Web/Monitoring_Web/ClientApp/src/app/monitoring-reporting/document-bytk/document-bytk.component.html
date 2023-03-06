@@ -1,0 +1,172 @@
+<main id="main" class="main">
+  <nav>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/" title="Home"><i class="bi bi-house"></i></a></li>
+      <li class="breadcrumb-item active">Transactions</li>
+    </ol>
+  </nav>
+  <div class="pagetitle d-flex justify-content-between">
+    <h1>Documents by the transaction key <a class="btn btn-link text-muted fw-light btn-sm ms-2 have-divider-s"
+      (click)="btnClose()"><i class="bi bi-arrow-return-left pe-1"></i> Back</a></h1>
+  </div>
+  <section class="section filter-box">
+    <form>
+      <div class="d-flex flex-nowrap justify-content-start">
+        <div class="col-auto">
+          <div class="d-flex">
+           
+            <div class="pe-1">
+              <div class="form-floating form-floating-sm">
+                <input type="date" disabled="true" [(ngModel)]="fromDate" [ngModelOptions]="{standalone: true}" class="form-control">
+                <label for="fromDate">From Date</label>
+              </div>
+            </div>
+            <div class="pe-1">
+              <div class="form-floating form-floating-sm">
+                <input type="date" disabled="true" [(ngModel)]="toDate" [ngModelOptions]="{standalone: true}" class="form-control">
+                <label for="toDate">To Date</label>
+              </div>
+            </div>
+            <div class="pe-1">
+              <div class="form-floating form-floating-sm">
+                <input [(ngModel)]="document" [ngModelOptions]="{standalone: true}" class="form-control" id="fileName">
+                <label for="fileName">Document</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex flex-nowrap align-self-center p-2">
+          <button (click)="btnReset()" type="button" class="btn btn-outline-secondary btn-sm me-2">Reset</button>
+          <button (click)="handleGetData()" title="Search" type="button" class="btn btn-dark btn-sm me-2"><i
+              class="bi bi-search"></i></button>
+        </div>
+      </div>
+    </form>
+  </section>
+
+  <div class="animated fadeIn">
+    <div class="card">
+      <div class="card-header">
+        
+      </div>
+      <div class="card-body">
+        <div class="tableFixHead table-responsive" style="height:calc(100vh - 370px)">
+          <table class="table table-sm">
+            <thead>
+              <tr>
+                <th scope="col">Transaction Key</th>
+                <th scope="col">Doc Type</th>
+                <th scope="col">Sender</th>
+                <th scope="col">Receiver</th>
+                <th scope="col">Document</th>
+                <th scope="col">Start Date</th>
+                <th scope="col">End Date</th>
+                <th scope="col">Status</th>
+                <th scope="col">Error Code</th>
+              </tr>
+              <tr *ngIf="isLoading" style="border: none;">
+                <th style="border: none;" colspan="100%">
+                  <div style="width:95%!important" class="line-loading position-absolute "></div>
+                </th>
+              </tr>
+              <tr *ngIf="data == undefined || data==null || data.length  ==0 ">
+                <th colspan="100%" class="text-center font-weight-bold border-bottom-0">
+                  <div class="box_empty">
+                    <img src="assets/img/no-data.gif" width="100">
+                    <h6 class="text-muted">No Data!</h6>
+                  </div>
+                </th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let item of data">
+              <tr>
+                <td>{{item.transactionKey}}</td>
+                <td>{{item.docType}}</td>
+                <td>{{item.senderCustName}}</td>
+                <td>{{item.receiverCustName}}</td>
+                <td>{{item.document}}</td>
+                <td>{{item.startDate| date: "MM/dd/yyyy HH:mm:ss"}}</td>
+                <td>{{item.endDate| date: "MM/dd/yyyy HH:mm:ss"}}</td>
+                <td>{{item.errorStatusString}}</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card-footer pagination-footer bg-white d-flex justify-content-end g-3 align-items-center">
+        <div class="row align-items-center">
+          <label class="col-auto col-form-label" for="hf-password">Show</label>
+          <div class="col-auto">
+            <select [(ngModel)]="pagination.pageSize" (ngModelChange)="onChangePageSize(pagination.pageSize)"
+              class="form-select form-select-sm" aria-label=".form-select-sm example">
+              <option *ngFor="let item of pagination.pageSizeList" [ngValue]="item">{{item}}</option>
+            </select>
+          </div>
+          <label class="col-auto col-form-label">items per page<span *ngIf="pagination.itemFrom>0">,
+              {{pagination.itemFrom}}-{{pagination.itemTo}} of
+              {{pagination.totalItem}} items</span></label>
+        </div>
+        <div class="row align-items-center">
+          <nav aria-label="Page navigation example">
+            <ul class="pagination pagination-sm justify-content-end mb-0 ms-2">
+              <li
+                [ngStyle]="{'pointer-events': pagination.pageNumber===1?'none':'all','cursor': pagination.pageNumber===1?'none':'pointer'}"
+                (click)="onChangePageNumber(pagination.pageNumber>1?pagination.pageNumber-1:1)"
+                [class]="pagination.pageNumber===1?'page-item disabled':'page-item'" aria-disabled="true">
+                <a class="page-link" tabindex="-1" title="Previous"><i class="bi bi-chevron-bar-left"></i></a>
+              </li>
+              <ng-container *ngIf="pagination.totalPage<=10">
+                <li style="cursor: pointer;" *ngFor="let item of pagination.listPageNumber"
+                  (click)="onChangePageNumber(item)"
+                  [class]="item===pagination.pageNumber?'page-item active':'page-item'">
+                  <a class="page-link">{{item}}</a>
+                </li>
+              </ng-container>
+              <ng-container *ngIf="pagination.totalPage>10">
+                <ng-container *ngIf="pagination.pageNumber<=5 || pagination.pageNumber>pagination.totalPage-4">
+                  <li style="cursor: pointer;" *ngFor="let item of pagination.listPageNumber.slice(0,5)"
+                    (click)="onChangePageNumber(item)"
+                    [class]="item===pagination.pageNumber?'page-item active':'page-item'">
+                    <a class="page-link">{{item}}</a>
+                  </li>
+                  <li style="cursor: pointer;">
+                    <a class="page-link">...</a>
+                  </li>
+                  <li style="cursor: pointer;"
+                    *ngFor="let item of pagination.listPageNumber.slice(pagination.totalPage-4,pagination.totalPage)"
+                    (click)="onChangePageNumber(item)"
+                    [class]="item===pagination.pageNumber?'page-item active':'page-item'">
+                    <a class="page-link">{{item}}</a>
+                  </li>
+                </ng-container>
+                <ng-container *ngIf="pagination.pageNumber>5 && pagination.pageNumber<=pagination.totalPage-4">
+                  <li style="cursor: pointer;">
+                    <a class="page-link">...</a>
+                  </li>
+                  <li style="cursor: pointer;"
+                    *ngFor="let item of pagination.listPageNumber.slice(pagination.pageNumber-4,pagination.pageNumber+4)"
+                    (click)="onChangePageNumber(item)"
+                    [class]="item===pagination.pageNumber?'page-item active':'page-item'">
+                    <a class="page-link">{{item}}</a>
+                  </li>
+                  <li style="cursor: pointer;">
+                    <a class="page-link">...</a>
+                  </li>
+                </ng-container>
+               
+              </ng-container>
+              <li
+                [ngStyle]="{'pointer-events': pagination.pageNumber===pagination.totalPage || pagination.totalPage===0?'none':'all','cursor': pagination.pageNumber===pagination.totalPage?'none':'pointer'}"
+                (click)="onChangePageNumber(pagination.pageNumber===pagination.totalPage?pagination.totalPage:pagination.pageNumber+1)"
+                [class]="pagination.pageNumber===pagination.totalPage|| pagination.totalPage===0?'page-item disabled':'page-item'">
+                <a class="page-link" title="Next"><i class="bi bi-chevron-bar-right"></i></a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>

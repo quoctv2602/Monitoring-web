@@ -1,0 +1,144 @@
+<main id="main" class="main">
+  <nav>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a routerLink="/" title="Home"><i class="bi bi-house"></i></a>
+      </li>
+      <li class="breadcrumb-item active">Node Management</li>
+    </ol>
+  </nav>
+  <div class="pagetitle d-flex justify-content-between">
+    <h1>Node Management</h1>
+    <div></div>
+  </div>
+  <section class="section filter-box">
+    <form [formGroup]="integrationForm">
+      <div class="d-flex flex-nowrap justify-content-start">
+        <div class="">
+          <div class="d-flex">
+            <div class="pe-1">
+              <div class="form-floating form-floating-sm">
+                <input type="text" class="form-control" formControlName="machineName" placeholder="Node Name" />
+                <label for="machineName">Node Name</label>
+              </div>
+            </div>
+            <div class="pe-1">
+              <div class="form-floating form-floating-sm">
+                <input type="text" class="form-control" formControlName="environmentName" placeholder="Environment" />
+                <label for="environmentName">Environment</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="align-self-center p-2">
+          <button (click)="btnReset()" type="button" class="btn btn-outline-secondary btn-sm me-2">
+            Reset
+          </button>
+          <button (click)="btnSearch()" title="Search" type="button" class="btn btn-dark btn-sm">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </section>
+  <div class="animated fadeIn">
+    <div class="card">
+      <div class="card-header">
+        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+          <div class="btn-group btn-group-sm me-2" role="group" aria-label="First group">
+            <button *ngIf="roles.indexOf(globalEnumResult.ActionEnum.kpiSettingsManageNode)!==-1" (click)="btnAdd()"
+              type="button" class="btn btn-outline-secondary">
+              <i class="bi bi-plus-circle text-primary me-1"></i> Add
+            </button>
+          </div>
+          <div class="btn-group btn-group-sm" role="group" aria-label="Third group">
+            <button *ngIf="roles.indexOf(globalEnumResult.ActionEnum.kpiSettingsManageNode)!==-1" (click)="btnDelete()"
+              type="button" class="btn btn-outline-secondary">
+              <i class="bi bi-trash"></i> Delete
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="tableFixHead table-responsive h_scrll-md">
+          <table class="table table-sm table-hover">
+            <thead>
+              <tr>
+                <th class="col40 text-center">
+                  <input type="checkbox" (change)="isCheckAll($event)" [(ngModel)]="isCheckallrs"
+                    class="form-check-input" />
+                </th>
+                <th class="col text-start">Environment</th>
+                <th class="col text-start">Node Name</th>
+                <th class="col-md-4 text-start">Domain</th>
+                <th class="col-2 text-start">Update Date</th>
+                <th class="col100 text-center">Actived</th>
+                <th class="col100 text-center">Default</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="
+                  let item of integrationData.listItem
+                    | paginate
+                      : {
+                          itemsPerPage: integrationData.pageSize,
+                          currentPage: integrationData.pageIndex,
+                          totalItems: integrationData.totalRecords
+                        }
+                ">
+                <td style="text-align: center">
+                  <input type="checkbox" id="checkboxitem" [(ngModel)]="item.isCheck" class="form-check-input" />
+                </td>
+                <td>{{ item.environmentName }}</td>
+                <td class="cell-breakAll">
+                  <a (click)="btnEdit(item.id)" href="javascript:void(0)"><u>{{ item.machineName }}</u></a>
+                </td>
+                <td>{{ item.domain_SystemHealth }}</td>
+                <td>{{ item.createDate | date : "MM/dd/yyyy HH:mm:ss" }}</td>
+                <td style="text-align: center" *ngIf="item.isActive == false">
+                  No
+                </td>
+                <td style="text-align: center" *ngIf="item.isActive == true">
+                  Yes
+                </td>
+                <td style="text-align: center" *ngIf="item.isDefaultNode == false">
+                  No
+                </td>
+                <td style="text-align: center" *ngIf="item.isDefaultNode == true">
+                  Yes
+                </td>
+              </tr>
+              <tr *ngIf="integrationData.listItem.length == 0">
+                <td colspan="100%" class="text-center font-weight-bold border-bottom-0">
+                  <div class="box_empty">
+                    <img src="assets/img/no-data.gif" width="100" />
+                    <h6 class="text-muted">No Data!</h6>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card-footer pagination-footer bg-white d-flex justify-content-end g-3 align-items-center">
+        <div class="row align-items-center">
+          <label class="col-auto col-form-label" for="hf-password">Show</label>
+          <div class="col-auto" style="margin-top: 7px">
+            <select (change)="onTableSizeChange(pagingSize)" class="form-select form-select-sm"
+              [(ngModel)]="pagingSize">
+              <option *ngFor="let size of tableSizes" [ngValue]="size">
+                {{ size }}
+              </option>
+            </select>
+          </div>
+          <label class="col-auto col-form-label" for="hf-password">Entries</label>
+        </div>
+        <div class="row align-items-center">
+          <pagination-controls [responsive]="true" previousLabel="Prev" nextLabel="Next"
+            (pageChange)="onTableDataChange($event)" class="pagination-sm">
+          </pagination-controls>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

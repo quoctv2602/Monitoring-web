@@ -1,0 +1,161 @@
+<form id="main" class="main" [formGroup]="notificationFormAdd">
+  <div class="d-flex justify-content-between py-2">
+    <div class="col header_form row gy-2 gx-3 align-items-center">
+      <div class="col col-md-8">
+        <div class="form-floating form-floating-header">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="name"
+            [ngClass]="{ 'is-invalid': submitted && f['name'].errors }"
+          />
+          <label for="notificationName"
+            >Name<span class="text-danger">*</span></label
+          >
+          <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
+            <div
+              *ngIf="
+                f['name'].errors['required'] || f['name'].errors['whitespace']
+              "
+            >
+              Name is required
+            </div>
+            <div *ngIf="f['name'].errors['maxlength']">
+              Name max 250 characters
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="right_action-toolbar align-self-center text-end">
+      <button
+        type="button"
+        class="btn btn-sm btn-dark me-1 min-w-100"
+        (click)="btnSave()"
+      >
+        Save
+      </button>
+      <button
+        type="button"
+        class="btn btn-sm btn-light min-w-100"
+        (click)="btnCancel()"
+      >
+        Cancel
+      </button>
+    </div>
+  </div>
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="#">General</a>
+    </li>
+  </ul>
+  <div
+    class="tab-content border-start border-end bg-white p-3 scrollarea h-100"
+  >
+    <div class="tab-pane fade show active">
+      <div class="row mb-2">
+        <label class="col-md-2 col-form-label col-form-label-sm"
+          >KPI <span class="text-danger">*</span></label
+        >
+        <div class="col-md-10">
+          <ng-select [multiple]="true" formControlName="kpi" id="kpi" required>
+            <ng-option *ngFor="let item of listMonitoring" [value]="item.id">{{
+              item.name
+            }}</ng-option>
+          </ng-select>
+          <div
+            *ngIf="submitted && f['kpi'].errors"
+            class="invalid-feedback"
+            style="display: block"
+          >
+            <div *ngIf="f['kpi'].errors['required']">KPI is required</div>
+          </div>
+        </div>
+       
+      </div>
+      <div class="row mb-2">
+        <label class="col-md-2 col-form-label col-form-label-sm"
+          >Notification Option</label
+        >
+        <div class="col-md-10">
+          <div class="input-group input-group-sm">
+            <input
+              type="radio"
+              id="Email"
+              name="notificationOption"
+              formControlName="notificationOption"
+              [value]="1"
+            />
+            <label for="Email" style="margin-left: 10px">Email </label>
+            <fieldset disabled>
+              <input
+                type="radio"
+                id="Message"
+                [attr.disabled]="true"
+                name="notificationOption"
+                formControlName="notificationOption"
+                [value]="2"
+                style="margin-left: 40px"
+              />
+              <label for="Message" style="margin-left: 10px">Message </label>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-2">
+        <label class="col-md-2 col-form-label col-form-label-sm"
+          >Emails <span class="text-danger">*</span></label
+        >
+        <div class="col-md-10">
+          <textarea
+            type="text"
+            class="form-control form-control-sm"
+            formControlName="emails"
+            rows="5"
+            [ngClass]="{ 'is-invalid': submitted && f['emails'].errors }"
+          ></textarea>
+          <div
+            *ngIf="submitted && f['emails'].errors"
+            class="invalid-feedback"
+            style="display: block"
+          >
+            <div
+              *ngIf="
+                f['emails'].errors['required'] ||
+                f['emails'].errors['whitespace']
+              "
+            >
+              Emails is required
+            </div>
+            <div *ngIf="f['emails'].errors['emails']">
+              Emails invalid format
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-2">
+        <label class="col-md-2 col-form-label col-form-label-sm"
+          >Notification Alias
+        </label>
+        <div class="col-md-10">
+          <div class="input-group input-group-sm">
+            <input
+              type="text"
+              class="form-control form-control-sm"
+              formControlName="notificationAlias"
+            >
+            <div
+              *ngIf="submitted && f['notificationAlias'].errors"
+              class="invalid-feedback"
+              style="display: block"
+            >
+              <div *ngIf="f['notificationAlias'].errors['maxlength']">
+                Notification Alias max 500 characters
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,140 @@
+<!-- <section class="section filter-box" *ngIf="ActiveslideShow == false">
+  <form>
+    <div class="d-flex justify-content-start">
+      <div class="">
+        <div class="d-flex">
+          <div class="pe-1">
+            <div class="form-floating form-floating-sm">
+              <input type="datetime-local" class="form-control">
+              <label for="fromDate">From Date</label>
+            </div>
+          </div>
+          <div class="pe-1">
+            <div class="form-floating form-floating-sm">
+              <input type="datetime-local" class="form-control">
+              <label for="toDate">To Date</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="align-self-center p-2">
+        <button type="button" class="btn btn-light btn-sm me-2">Reset</button>
+        <button type="button" class="btn btn-dark btn-sm"><i class="bi bi-search"></i></button>
+      </div>
+    </div>
+  </form>
+</section> -->
+
+<div class="fullscreen" id="fullscreen">
+  <div class="card position-relative mb-0 d-flex flex-column h-100">
+    <div class="line-loading position-absolute w-100" *ngIf="ActiveslideShow == true"></div>
+    <div class="card-header">
+      <div class="d-flex align-items-center justify-content-between">
+        <div></div>
+        <div class="d-flex" style="margin-right: auto;">
+          <div class="form-floating form-floating-sm pe-1">
+            <ng-select [items]="LatestList" bindLabel="Name" bindValue="ID" [disabled]="true"
+              [(ngModel)]="LatestSelect.ID" class="border-end">
+            </ng-select>
+            <label for="toDate" class="form-label">Latest</label>
+          </div>
+          <div class="form-floating form-floating-sm pe-1">
+            <ng-select [items]="EnvironmentList" [clearable]="false" bindLabel="name"
+              (ngModelChange)="onChangeEnvironment($event)" [(ngModel)]="selectedEnvironment">
+            </ng-select>
+            <label for="toDate">Environment</label>
+          </div>
+          <div class="form-floating form-floating-sm pe-1">
+            <ng-select [items]="cipFlowList" [clearable]="false" bindLabel="name"
+              (ngModelChange)="onChangeCIPFlow($event)" [(ngModel)]="selectedCIPFlow">
+            </ng-select>
+            <label for="toDate">Data</label>
+          </div>
+          <div class="align-self-center ms-2">
+            <button type="button" class="btn btn-outline-secondary btn-sm" (click)="onRefresh()" *ngIf="ActiveslideShow == false"
+              title="Refresh"><i class="bi bi-arrow-clockwise text-primary"></i> Refresh Transactions</button>
+          </div>
+          <!-- <div class="align-self-center ms-2">
+            <button type="button" class="btn btn-default btn-sm" (click)="handleGetData()"
+              *ngIf="ActiveslideShow == false" title="Get Data"><i class="bi bi bi-broadcast-pin"></i></button>
+          </div> -->
+        </div>
+      </div>
+    </div>
+    <div class="card-body border-top">
+      <div class="row">
+        <div class="col-md-5 d-flex flex-column">
+          <div class="tableFixHead h-310">
+            <table class="table table-responsive">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col">Transaction Key</th>
+                  <th scope="col">Error Status</th>
+                  <th scope="col">Monitored Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of TransactionList">
+                  <td>{{item.rowNum}}</td>
+                  <td>{{item.transactionKey}}</td>
+
+                  <td><span [class]="getClass(item.errorStatus)">{{item.errorStatus}}</span>
+                  </td>
+                  <td><label class="text-primary">{{item.monitoredStatus}}</label></td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="col-md-7 d-flex flex-column">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <canvas id="BarChart" class="h-200"></canvas>
+            </div>
+            <div class="col-md-6">
+              <dl class="row justify-content-between align-items-baseline">
+                <dt class="col-6">Total</dt>
+                <dd class="col-6 text-end pe-5"><span
+                    class="badge text-bg-light">{{getTotalSummaryTransaction()}}</span></dd>
+                <ng-container *ngFor="let item of transactionData.columnChartData">
+                  <dt class="col-6">
+                    <span [class]="getClass(item.errorStatus)">{{item.errorStatus}}</span>
+                  </dt>
+                  <dd class="col-6 text-end pe-5">
+                    <span class="badge text-bg-light">{{item.numberOfTransactions}}</span>
+                  </dd>
+                </ng-container>
+
+
+                <!-- <dt class="col-6"><span [class]="getClass('Integration Error')">Integration Error</span></dt>
+                <dd class="col-6 text-end pe-5"><span class="badge text-bg-light">59</span></dd>
+                <dt class="col-6"><span [class]="getClass('Error')">Error</span></dt>
+                <dd class="col-6 text-end pe-5"><span class="badge text-bg-light">60</span></dd> -->
+
+                <!-- <dt class="col-6">
+                  <span class="badge" style="background-color: #f1232394;color: white">Un-resolved</span>
+                </dt>
+                <dd class="col-6 text-end pe-5"><span class="badge text-bg-light">10</span></dd>
+                <dt class="col-6"> <span class="badge" style="background-color: #cc0808d8;color: white;">Informed</span>
+                </dt>
+                <dd class="col-6 text-end pe-5"><span class="badge text-bg-light">25</span></dd>
+                <dt class="col-6">
+                  <span class="badge" style="background-color: #9b0101;color: white;">Resolved</span>
+                </dt>
+                <dd class="col-6 text-end pe-5"><span class="badge text-bg-light">30</span></dd> -->
+              </dl>
+            </div>
+          </div>
+          <div class="row">
+              <div class="col-md-12">
+                <canvas id="LineChart" class="h-200"></canvas>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

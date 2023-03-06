@@ -1,0 +1,255 @@
+<main id="main" class="main">
+  <nav>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/" title="Home"><i class="bi bi-house"></i></a></li>
+      <li class="breadcrumb-item active"><a routerLink="/monitoring-reporting-basic"
+          title="Transactions">Transactions</a></li>
+    </ol>
+  </nav>
+  <div class="pagetitle d-flex justify-content-between">
+    <h1>View Configuration
+    </h1>
+  </div>
+  <hr style="opacity: 1;" />
+  <div class="animated fadeIn">
+    <div class="card-body">
+      <div class="row">
+        <div class="row mb-2">
+          <label class="col-md-12 col-form-label col-form-label-sm" for="hf-password">
+            <b>Transaction Key: </b>{{transactionKey}}</label>
+          <hr />
+        </div>
+      </div>
+      <div class="tableFixHead table-responsive h_scrll-md" style="height:calc(100vh - 350px)">
+        <table class="table table-sm" style="background-color: white;">
+          <thead>
+            <tr style="border:1px solid black;text-align: center;">
+              <th  style="width:20%;border: 1px solid black;background-color: #93A8DA !important;">Site</th>
+              <th  style="width:40%;border: 1px dashed black;background-color: #93A8DA !important">Parameter
+              </th>
+              <th  style="width:40%;background-color: #93A8DA !important">Value</th>
+            </tr>
+            <tr *ngIf="isLoading" style="border: none;">
+              <th style="border: none;" colspan="100%">
+                <div style="width:95%!important" class="line-loading position-absolute "></div>
+              </th>
+            </tr>
+            <tr *ngIf="isEmptyObject(data.senderCustomer) && isEmptyObject(data.receiverCustomer) && isEmptyObject(data.cipConfiguration)">
+              <th colspan="100%" class="text-center font-weight-bold border-bottom-0">
+                <div class="box_empty">
+                  <img src="assets/img/no-data.gif" width="100">
+                  <h6 class="text-muted">No Data!</h6>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody *ngIf="!isEmptyObject(data.senderCustomer) || !isEmptyObject(data.receiverCustomer)|| !isEmptyObject(data.cipConfiguration)">
+            <tr>
+              <td rowspan="30" class="first-column">Blue CRM</td>
+              <td class="second-column-group"><b>Sender</b></td>
+              <td class="third-column"></td>
+            </tr>
+            <tr>
+              <td class="second-column">Customer ID</td>
+              <td class="third-column">{{data.senderCustomer.customerID}}</td>
+            </tr>
+            <tr>
+              <td class="second-column">
+                Customer Name</td>
+              <td class="third-column">{{data.senderCustomer.customerName}}</td>
+            </tr>
+            <tr>
+              <td class="second-column">
+                ISA ID</td>
+              <td class="third-column">{{data.senderCustomer.isaid}}</td>
+            </tr>
+            <tr>
+              <td class="second-column">
+                Outgoing GS ID</td>
+              <td class="third-column">{{data.senderCustomer.gsOut}}</td>
+            </tr>
+            <tr>
+              <td class="second-column">
+                Incoming GS ID</td>
+              <td class="third-column">{{data.senderCustomer.gsIn}}</td>
+            </tr>
+            <tr>
+              <td class="second-column">
+                ID Qualifier</td>
+              <td class="third-column">{{data.senderCustomer.qualifier}}</td>
+            </tr>
+            <tr>
+              <td class="second-column">
+                Customer Ranking</td>
+              <td class="third-column">{{data.senderCustomer.customerRanking}}</td>
+            </tr>
+            <tr>
+              <td class="second-column">
+                Customer Owner</td>
+              <td class="third-column">{{data.senderCustomer.customerOwner}}</td>
+            </tr>
+            <tr>
+              <td class="second-column">
+                SiteID</td>
+              <td class="third-column">{{data.senderCustomer.siteID}}</td>
+            </tr>
+            <tr>
+              <td class="second-column">
+                Use CIP</td>
+              <td class="third-column">{{data.senderCustomer.useCIPName}}</td>
+            </tr>
+            <tr>
+              <td class="second-column">
+                Use AsciiR9</td>
+              <td class="third-column">{{data.senderCustomer.useASCIIR9_YN}}</td>
+            </tr>
+            <tr>
+              <td class="second-column">
+                DiMetrics Y/N</td>
+              <td class="third-column">{{data.senderCustomer.useDiMetrics_YN}}</td>
+            </tr>
+            <tr>
+              <td class="second-column">
+                Download EDI Y/N</td>
+              <td class="third-column">{{data.senderCustomer.downloadEDI_YN}}</td>
+            </tr>
+            <tr>
+              <td class="second-column">
+                Download ASCII Y/N</td>
+              <td class="third-column">{{data.senderCustomer.downloadASCII_YN}}</td>
+            </tr>
+            <tr>
+              <td class="second-column-group"><b>Receiver</b></td>
+              <td class="third-column"></td>
+            </tr>
+            <tr>
+              <td class="second-column">Customer ID</td>
+              <td class="third-column">{{data.receiverCustomer.customerID}}</td>
+            </tr>
+            <tr>
+              <td class="second-column">
+                Customer Name</td>
+              <td class="third-column">{{data.receiverCustomer.customerName}}</td>
+            </tr>
+            <tr>
+              <td class="second-column">
+                ISA ID</td>
+              <td class="third-column">{{data.receiverCustomer.isaid}}</td>
+            </tr>
+            <tr>
+              <td class="second-column">
+                Outgoing GS ID</td>
+              <td class="third-column">{{data.receiverCustomer.gsOut}}</td>
+            </tr>
+            <tr>
+              <td class="second-column">
+                Incoming GS ID</td>
+              <td class="third-column">{{data.receiverCustomer.gsIn}}</td>
+            </tr>
+            <tr>
+              <td class="second-column">
+                ID Qualifier</td>
+              <td class="third-column">{{data.receiverCustomer.qualifier}}</td>
+            </tr>
+            <tr>
+              <td class="second-column">
+                Customer Ranking</td>
+              <td class="third-column">{{data.receiverCustomer.customerRanking}}</td>
+            </tr>
+            <tr>
+              <td class="second-column">
+                Customer Owner</td>
+              <td class="third-column">{{data.receiverCustomer.customerOwner}}</td>
+            </tr>
+            <tr>
+              <td class="second-column">
+                SiteID</td>
+              <td class="third-column">{{data.receiverCustomer.siteID}}</td>
+            </tr>
+            <tr>
+              <td class="second-column">
+                Use CIP</td>
+              <td class="third-column">{{data.receiverCustomer.useCIPName}}</td>
+            </tr>
+            <tr>
+              <td class="second-column">
+                Use AsciiR9</td>
+              <td class="third-column">{{data.receiverCustomer.useASCIIR9_YN}}</td>
+            </tr>
+            <tr>
+              <td class="second-column">
+                DiMetrics Y/N</td>
+              <td class="third-column">{{data.receiverCustomer.useDiMetrics_YN}}</td>
+            </tr>
+            <tr>
+              <td class="second-column">
+                Download EDI Y/N</td>
+              <td class="third-column">{{data.receiverCustomer.downloadEDI_YN}}</td>
+            </tr>
+            <tr>
+              <td class="second-column">
+                Download ASCII Y/N</td>
+              <td class="third-column">{{data.receiverCustomer.downloadASCII_YN}}</td>
+            </tr>
+            <tr>
+              <td rowspan="9" class="first-column">CIP</td>
+              <td class="second-column-group">TransID</td>
+              <td class="third-column">{{transID}}</td>
+            </tr>
+            <tr>
+              <td class="second-column-group">
+                Sender</td>
+              <td class="third-column">{{viewConfigItem.senderCustName}}</td>
+            </tr>
+            <tr>
+              <td class="second-column-group">
+                Receiver</td>
+              <td class="third-column">{{viewConfigItem.receiverCustName}}</td>
+            </tr>
+            <tr>
+              <td class="second-column-group">
+                Sender Mailbox</td>
+              <td class="third-column"><span>{{getMultiValue('mailboxName','sender')}}</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="second-column-group">
+                Sender HomeDir</td>
+              <td class="third-column"><span>{{getMultiValue('mailboxHomeDir','sender')}}</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="second-column-group">
+                Receiver Mailbox</td>
+              <td class="third-column"><span>{{getMultiValue('mailboxName','receiver')}}</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="second-column-group">
+                Receiver HomeDir</td>
+              <td class="third-column"><span>{{getMultiValue('mailboxHomeDir','receiver')}}</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="second-column-group">
+                Receiver Client Connection Protocol</td>
+              <td class="third-column"><span>{{getMultiValue('clientConnectionProtocol','receiver')}}</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="second-column-group">
+                Client URL</td>
+              <td class="third-column"><span>{{getMultiValue('clientURL','both')}}</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card-footer border-top-0" style="text-align: right;">
+      <button (click)="btnClose()" type="reset" class="btn btn-secondary btn-sm">
+        Close
+      </button>
+    </div>
+  </div>
+</main>

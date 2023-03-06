@@ -1,0 +1,209 @@
+<header id="header" class="header fixed-top d-flex align-items-center border-bottom">
+  <div class="d-flex align-items-center justify-content-between"> <i (click)="sidebarToggle()"
+      class="bi bi-list toggle-sidebar-btn"></i>
+    <a routerLink="/dashboard" class="logo d-flex align-items-center"> <img src="assets/img/logo.png" alt=""> <span
+        class="d-none d-lg-block">Monitoring Tool</span> </a>
+  </div>
+  <div class="search-bar">
+    <form class="search-form d-flex align-items-center" method="POST" action="#">
+      <!-- <input type="text" name="query" placeholder="Search" title="Enter search keyword"> <button type="submit" title="Search"><i class="bi bi-search"></i></button> -->
+      <select class="form-select" aria-label="Default select example" *ngIf="false">
+        <option selected>English</option>
+        <option value="1">Fr</option>
+        <option value="2">Ja</option>
+        <option value="3">VN</option>
+      </select>
+    </form>
+  </div>
+
+  <nav class="header-nav ms-auto">
+
+    <ul class="d-flex align-items-center">
+      <li class="nav-item d-none"> <a class="nav-link nav-icon search-bar-toggle " href="#"> <i
+            class="bi bi-search"></i> </a>
+      </li>
+
+      <!-- <div [class]="getClass(msgNew.type,'background')" *ngIf="isShow == 1 && msgNew" role="alert"
+            style="transition: all 2s;">
+
+            <div class="typed-animation">
+               <label class="typed-out"> <strong style="font-weight: 700">{{msgNew.from}}: </strong>{{
+                  (msgNew.message.length>50)? (msgNew.message | slice:0:50)+'...':(msgNew.message) }}</label>
+            </div>
+            <button type="button" class="btn-close" (click)="isShow = 0" data-bs-dismiss="alert"
+               aria-label="Close"></button>
+         </div> -->
+      <li class="nav-item dropdown" *ngIf="false">
+        <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown"> <i class="bi bi-bell"></i>
+          <span class="badge bg-primary badge-number" *ngIf="CountNotification(0) > 0">{{CountNotification(0)}}</span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
+          <li class="dropdown-header"> You have {{CountNotification(0)}} new notifications <a href="#">
+
+              <span class="badge rounded-pill bg-primary p-2 ms-2" (click)="ClearAll()"
+                *ngIf="msg && msg.length>0">Clear all</span>
+            </a></li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <div style="overflow-x: auto;
+               max-height: 500px;">
+            <li class="notification-item" (click)="viewNotification(item)" data-bs-toggle="modal"
+              data-bs-target="#ModalView" [ngStyle]="{'background-color':item.isRead == 0 ? 'aliceblue':''}"
+              *ngFor="let item of msg">
+              <i [class]="getClass(item.type,'icon')"></i>
+              <div style="cursor: pointer">
+                <h4>{{item.from}}</h4>
+                <p>
+                  {{ (item.message.length>100)? (item.message | slice:0:100)+'...':(item.message) }}
+                </p>
+                <p>{{item.timestamp}}</p>
+              </div>
+              <hr class="dropdown-divider">
+            </li>
+
+          </div>
+
+
+          <li style="cursor: pointer" class="dropdown-footer" (click)="ReadAll()" *ngIf="msg && msg.length>0">
+            <a>Read all notifications</a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown" *ngIf="false">
+        <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown"> <i class="bi bi-chat-left-text"></i> <span
+            class="badge bg-success badge-number">3</span> </a>
+        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
+          <li class="dropdown-header"> You have 3 new messages <a href="#"><span
+                class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a></li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li class="message-item">
+            <a href="#">
+              <img src="assets/img/messages-1.jpg" alt="" class="rounded-circle">
+              <div *ngIf="profile">
+                <h4>User </h4>
+                <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
+                <p>4 hrs. ago</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li class="message-item">
+            <a href="#">
+              <img src="assets/img/messages-2.jpg" alt="" class="rounded-circle">
+              <div>
+                <h4>User 1</h4>
+                <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
+                <p>6 hrs. ago</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li class="message-item">
+            <a href="#">
+              <img src="assets/img/messages-3.jpg" alt="" class="rounded-circle">
+              <div>
+                <h4>User 2</h4>
+                <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
+                <p>8 hrs. ago</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li class="dropdown-footer"> <a href="#">Show all messages</a></li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown pe-3" *ngIf="profile">
+        <a class="nav-link nav-profile d-flex align-items-center dropdown-toggle pe-0" href="#"
+          data-bs-toggle="dropdown"> <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle"></a>
+        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile border-0">
+          <li class="dropdown-header">
+            <img width="82" src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle mb-2">
+            <h6>{{profile.name}}</h6>
+            <!--
+            <span>{{profile.username}}</span> -->
+          </li>
+          <!-- <li> <a class="dropdown-item d-flex align-items-center" routerLink="/user-profile"> <i
+                        class="bi bi-person"></i> <span>My Profile</span> </a></li>
+               <li>
+                  <hr class="dropdown-divider">
+               </li>
+               <li> <a class="dropdown-item d-flex align-items-center" routerLink="/user-profile"> <i
+                        class="bi bi-gear"></i> <span>Account Settings</span> </a></li>
+               <li>
+                  <hr class="dropdown-divider">
+               </li>
+               <li> <a class="dropdown-item d-flex align-items-center" routerLink="/pages-faq"> <i
+                        class="bi bi-question-circle"></i> <span>Need Help?</span> </a></li>
+               <li>
+                  <hr class="dropdown-divider">
+               </li> -->
+          <li (click)="logOut()"> <a class="dropdown-item d-flex align-items-center"> <i
+                class="bi bi-box-arrow-right"></i> <span>Sign Out</span> </a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<div class="modal" id="ModalView" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Notification</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>{{tempModalView}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" (click)="ClearNotification(tempModalViewId)" data-bs-dismiss="modal"
+          class="btn btn-primary">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--
+<div class="modal fade" id="ModalView" tabindex="-1">
+   <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+         <main class="container" style="padding-top: 20px">
+            <div class="pagetitle">
+               <h1> View</h1>
+               <hr>
+            </div>
+            <section class="section">
+               <div class="row">
+                  <div class="col-lg-12">
+                     <div class="card">
+                        <div class="card-body" style="background-color: #ffffff">
+                           <textarea rows="10" class="form-control" style="height: 159px;margin-top: 20px;" disabled>{{tempModalView}}
+                              </textarea>
+
+
+
+                        </div>
+                        <div class="card-footer" style="text-align: right">
+                           <button   type="button" class="btn btn-dark btn-sm  m-1"  data-bs-dismiss="modal"><i  class="bi bi-clipboard-x"></i> Close</button>
+
+                           <button   type="button" class="btn btn-success btn-sm" (click)="ClearNotification(tempModalViewId)" data-bs-dismiss="modal"><i  class="bi bi-clipboard-x"></i> Delete</button>
+                        </div>
+                     </div>
+
+                  </div>
+
+               </div>
+            </section>
+         </main>
+      </div>
+   </div>
+</div> -->

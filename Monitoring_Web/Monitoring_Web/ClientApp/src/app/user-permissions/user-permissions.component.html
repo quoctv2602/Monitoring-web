@@ -1,0 +1,30 @@
+<div class="main" id="main">
+  <nav>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/" title="Home"><i class="bi bi-house"></i></a></li>
+      <li class="breadcrumb-item active">User Permission</li>
+    </ol>
+  </nav>
+  <div class="pagetitle d-flex justify-content-between">
+    <h1>User Permission</h1>
+  </div>
+  <ul class="nav nav-pills mb-2">
+    <li class="nav-item">
+      <button [ngClass]="{'active': activeTab==='group'}" class="nav-link  rounded-pill" data-bs-toggle="tab"
+        data-bs-target="#group" (click)="onChangeTab('group')">Group</button>
+    </li>
+    <li class="nav-item">
+      <button [ngClass]="{'active': activeTab==='user'}" class="nav-link rounded-pill" data-bs-toggle="tab"
+        data-bs-target="#user" (click)="onChangeTab('user')">User
+      </button>
+    </li>
+  </ul>
+  <div class="tab-content">
+    <div [ngClass]="{'active': activeTab==='group'}" class="tab-pane fade show group" id="group">
+      <app-groups></app-groups>
+    </div>
+    <div [ngClass]="{'active': activeTab==='user'}" class="tab-pane fade show user" id="user">
+      <app-users></app-users>
+    </div>
+  </div>
+</div>

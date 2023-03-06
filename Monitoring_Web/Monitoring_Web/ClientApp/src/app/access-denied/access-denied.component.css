@@ -1,0 +1,47 @@
+@media (min-width: 1200px){
+    .box_access-denied .h1, .box_access-denied h1 {
+        font-size: 3.5rem;
+        font-weight: 700;
+    }
+    .text_lead-mss{
+        font-size: 1.4em;
+    }
+    .box_access-col-content{
+        padding-right: 3em;
+    }
+    .box_access-denied{
+        padding:7em 20em !important;
+    }
+}
+@media (max-width:500px){
+    .box_access-denied-inside{
+        flex-direction: column;
+    }
+}
+.text_lead-mss{
+    margin-bottom: 2em;
+}
+.box_access-denied code{
+    color:#e24b4a
+}
+.text_muted{
+    color:#bcc8d3;
+
+}
+.box_access-denied{
+    padding:7em 2em;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+    height: 100vh;
+}
+.box_access-denied-inside{
+    display: flex;
+}
+.box_access-col-img{
+    padding-right:30px
+}
+.box_access-col-img > img{
+    width:70px
+}

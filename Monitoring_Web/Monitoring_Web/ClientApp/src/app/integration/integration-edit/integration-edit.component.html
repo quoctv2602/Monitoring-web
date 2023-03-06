@@ -1,0 +1,303 @@
+<form id="main" class="main" [formGroup]="integrationFormEdit">
+  <div class="d-flex justify-content-between py-2">
+    <div class="col header_form row gy-2 gx-3 align-items-center">
+      <div class="col col-md-4">
+        <div class="form-floating form-floating-header">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="machineName"
+            [ngClass]="{
+              'is-invalid': submitted && f['machineName'].errors
+            }"
+          />
+          <label for="machineName"
+            >Node name<span class="text-danger">*</span></label
+          >
+          <div
+            *ngIf="submitted && f['machineName'].errors"
+            class="invalid-feedback"
+          >
+            <div
+              *ngIf="
+                f['machineName'].errors['required'] ||
+                f['machineName'].errors['whitespace']
+              "
+            >
+              Node Name is required
+            </div>
+            <div *ngIf="f['machineName'].errors['maxlength']">
+              Node name max 500 characters
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-auto col-md-3">
+        <div class="form-floating form-floating-header">
+          <select
+            class="form-control form-select"
+            name="environment"
+            formControlName="environmentID"
+            [ngClass]="{
+              'is-invalid': submitted && f['environmentID'].errors
+            }"
+          >
+            <option
+              disabled
+              *ngFor="let item of listEnvironment"
+              value="{{ item.id }}"
+            >
+              {{ item.name }}
+            </option>
+          </select>
+          <label for="environment"
+            >Environment<span class="text-danger">*</span></label
+          >
+        </div>
+        <div
+          *ngIf="submitted && f['environmentID'].errors"
+          class="invalid-feedback"
+        >
+          <div *ngIf="f['environmentID'].errors['required']">
+            Environment is required
+          </div>
+        </div>
+      </div>
+      <div class="col-auto">
+        <div class="form-floating-header">
+          <label class="col-form-label"> Activate </label>
+          <div class="form-check form-switch">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              formControlName="isActive"
+              id="cbActive"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="col-auto">
+        <div class="form-floating-header">
+          <label class="col-form-label"> Default </label>
+          <div class="form-check form-switch">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              formControlName="isDefaultNode"
+              id="isDefaultNode"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="right_action-toolbar align-self-center text-end">
+      <button
+        type="button"
+        name="btnCreateNode"
+        class="btn btn-sm btn-dark me-1 min-w-100"
+        (click)="btnSaveEdit()"
+      >
+        Save
+      </button>
+      <button
+        type="button"
+        class="btn btn-sm btn-light min-w-100"
+        (click)="btnCancel()"
+      >
+        Cancel
+      </button>
+    </div>
+  </div>
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="#">General</a>
+    </li>
+  </ul>
+  <div
+    class="tab-content border-start border-end bg-white p-3 scrollarea h-100"
+  >
+    <div class="tab-pane fade show active">
+      <div class="row mb-2">
+        <label class="col-md-2 col-form-label col-form-label-sm"
+          >End-point <span class="text-danger">*</span></label
+        >
+        <div class="col-md-6">
+          <div class="input-group input-group-sm">
+            <input
+              *ngIf="isSave == true"
+              type="text"
+              class="form-control"
+              formControlName="domain_SystemHealth"
+              readonly
+              [ngClass]="{
+                'is-invalid': submitted && f['domain_SystemHealth'].errors
+              }"
+            />
+            <input
+              *ngIf="isSave == false"
+              type="text"
+              class="form-control"
+              formControlName="domain_SystemHealth"
+              [ngClass]="{
+                'is-invalid': submitted && f['domain_SystemHealth'].errors
+              }"
+            />
+            <button
+              *ngIf="isSave == true"
+              type="button"
+              class="btn btn-sm btn-outline-secondary"
+              disabled
+              (click)="btnCheckValidation()"
+            >
+              Validation
+            </button>
+            <button
+              *ngIf="isSave == false"
+              type="button"
+              class="btn btn-sm btn-outline-secondary"
+              (click)="btnCheckValidation()"
+            >
+              Validation
+            </button>
+            <div
+              *ngIf="submitted && f['domain_SystemHealth'].errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f['domain_SystemHealth'].errors['required']">
+                End-point is required
+              </div>
+              <div *ngIf="f['domain_SystemHealth'].errors['pattern']">
+                End-point invalid format
+              </div>
+              <div *ngIf="f['domain_SystemHealth'].errors['maxlength']">
+                End-point max 500 characters
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-2">
+        <label class="col-md-2 col-form-label col-form-label-sm"
+          >Public Key <span class="text-danger">*</span></label
+        >
+        <div class="col-md-6">
+          <input
+            *ngIf="isSave == true"
+            type="password"
+            class="form-control form-control-sm"
+            formControlName="healthMeasurementKey"
+            readonly
+            [ngClass]="{
+              'is-invalid': submitted && f['healthMeasurementKey'].errors
+            }"
+          />
+          <input
+            *ngIf="isSave == false"
+            type="password"
+            class="form-control form-control-sm"
+            formControlName="healthMeasurementKey"
+            [ngClass]="{
+              'is-invalid': submitted && f['healthMeasurementKey'].errors
+            }"
+          />
+          <div
+            *ngIf="submitted && f['healthMeasurementKey'].errors"
+            class="invalid-feedback"
+          >
+            <div
+              *ngIf="
+                f['healthMeasurementKey'].errors['required'] ||
+                f['healthMeasurementKey'].errors['whitespace']
+              "
+            >
+              Public Key is required
+            </div>
+            <div *ngIf="f['healthMeasurementKey'].errors['maxlength']">
+              Public Key max 4000 characters
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-2">
+        <label class="col-md-2 col-form-label col-form-label-sm"
+          >Private Key <span class="text-danger">*</span></label
+        >
+        <div class="col-md-6">
+          <input
+            *ngIf="isSave == true"
+            type="password"
+            class="form-control form-control-sm"
+            formControlName="appid"
+            readonly
+            [ngClass]="{
+              'is-invalid': submitted && f['appid'].errors
+            }"
+          />
+          <input
+            *ngIf="isSave == false"
+            type="password"
+            class="form-control form-control-sm"
+            formControlName="appid"
+            [ngClass]="{
+              'is-invalid': submitted && f['appid'].errors
+            }"
+          />
+          <div *ngIf="submitted && f['appid'].errors" class="invalid-feedback">
+            <div
+              *ngIf="
+                f['appid'].errors['required'] || f['appid'].errors['whitespace']
+              "
+            >
+              Private Key is required
+            </div>
+            <div *ngIf="f['appid'].errors['maxlength']">
+              Private Key max 4000 characters
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-2">
+        <label class="col-md-2 col-form-label col-form-label-sm"
+          >Services <span class="text-danger">*</span></label
+        >
+        <div class="col-md-6">
+          <textarea
+            *ngIf="isSave == true"
+            type="text"
+            class="form-control form-control-sm"
+            formControlName="serviceList"
+            readonly
+            [ngClass]="{
+              'is-invalid': submitted && f['serviceList'].errors
+            }"
+          ></textarea>
+          <textarea
+            *ngIf="isSave == false"
+            type="text"
+            class="form-control form-control-sm"
+            formControlName="serviceList"
+            [ngClass]="{
+              'is-invalid': submitted && f['serviceList'].errors
+            }"
+          ></textarea>
+          <div
+            *ngIf="submitted && f['serviceList'].errors"
+            class="invalid-feedback"
+          >
+            <div
+              *ngIf="
+                f['serviceList'].errors['required'] ||
+                f['serviceList'].errors['whitespace']
+              "
+            >
+              Services is required
+            </div>
+            <div *ngIf="f['serviceList'].errors['maxlength']">
+              Services max 4000 characters
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

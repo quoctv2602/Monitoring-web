@@ -1,0 +1,170 @@
+<main class="h-100">
+  <div class="container-fluid" *ngIf="false">
+    <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+            <div class="d-flex justify-content-center py-4"> <a routerLink="/"
+                class="logo d-flex align-items-center w-auto"> <img src="assets/img/logo.png" alt=""> <span
+                  class="d-none d-lg-block">Monitoring Tool</span> </a></div>
+            <div class="card mb-3">
+              <div class="card-body">
+                <div class="pt-4 pb-2">
+                  <h5 class="card-title text-center pb-0 fs-4">Login to Your Account</h5>
+                  <p class="text-center small">Enter your username & password to login</p>
+                </div>
+                <form class="row g-3 needs-validation" novalidate>
+                  <div class="col-12">
+                    <label for="yourUsername" class="form-label">Username</label>
+                    <div class="input-group has-validation">
+                      <span class="input-group-text" id="inputGroupPrepend">@</span> <input type="text" name="username"
+                        class="form-control" id="yourUsername" required>
+                      <div class="invalid-feedback">Please enter your username.</div>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <label for="yourPassword" class="form-label">Password</label> <input type="password" name="password"
+                      class="form-control" id="yourPassword" required>
+                    <div class="invalid-feedback">Please enter your password!</div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-check"> <input class="form-check-input" type="checkbox" name="remember"
+                        value="true" id="rememberMe"> <label class="form-check-label" for="rememberMe">Remember
+                        me</label></div>
+                  </div>
+                  <div class="col-12"> <button class="btn btn-primary w-100" type="submit">Login</button></div>
+                  <div class="or-container">
+                    <div class="line-separator"></div>
+                    <div class="or-label">or</div>
+                    <div class="line-separator"></div>
+                  </div>
+
+
+                  <div class="col-12">
+                    <a style="width: 100%;" class="btn btn-lg btn-google btn-block text-uppercase btn-outline"
+                      href="#"><img src="https://img.icons8.com/color/16/000000/google-logo.png"> Sign In
+                      Using
+                      Google</a>
+
+                  </div>
+                  <!-- <div class="col-12">
+                              <p class="small mb-0">Don't have account? <a routerLink="/pages-register">Create an
+                                    account</a></p>
+                           </div> -->
+                </form>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div id="liveAlertPlaceholder"></div>
+
+  <div class="container-fluid px-0 h-100">
+    <div class="row align-items-center h-100">
+      <div class="col-sm-6 h-100 d-none d-sm-block bg-white">
+        <div class="login-poster">
+          <a class="login-brand">
+            <img class="img-fluid" src="assets/img/logo-tc.png">
+          </a>
+          <img src="assets/img/demo_bg.gif" class="login-poster-img">
+          <div class="login-footer-cp">
+            <p>©<strong><span><a _ngcontent-ng-cli-universal-c66="" href="">Truecommerce Corporation
+                  </a></span></strong>2022</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 h-100" style="background-color: #F9F9F9;">
+        <div class="login-content">
+          <h1 class="h3 mb-3 fw-normal">Log In</h1>
+          <div class="h3 mb-4 fw-bold text-primary">Welcome to Monitoring Tool</div>
+          <!-- <div class="description mb-2">Please Log In</div>
+          <div class="mb-3">
+            <div class="form-floating input-group">
+              <span class="input-group-text bg-white border-end-0 rounded-0">
+                <i class="bi bi-person-fill"></i>
+              </span>
+              <input type="text" name="email" placeholder="Enter a valid Username"
+                class="form-control bg-white border-start-0">
+              <label for="email">Username</label>
+            </div>
+            <div class="invalid-feedback">
+              Please provide a valid username
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="form-floating input-group">
+              <span class="input-group-text bg-white border-end-0 rounded-0">
+                <i class="bi bi-lock-fill"></i>
+              </span>
+              <input type="password" name="password" placeholder="Enter password"
+                class="form-control bg-white border-start-0">
+              <label for="password">Password</label>
+            </div>
+            <div class="invalid-feedback">
+              Please provide a valid password
+            </div>
+          </div>
+          <div class="form-check mb-4">
+            <input class="form-check-input" type="checkbox" id="RememberMe" name="RememberMe" value="true">
+            <label class="form-check-label" for="RememberMe">
+              Remember me
+            </label>
+          </div>
+          <button class="btn btn-primary w-100 py-2" type="submit">
+            <span *ngIf="false">loading</span> Login
+          </button>
+
+
+          <div class="row px-3">
+            <div class="or-container">
+              <div class="line-separator"></div>
+              <div class="or-label">or</div>
+              <div class="line-separator"></div>
+            </div>
+          </div> -->
+
+          <a (click)="login()" class="btn btn-outline-secondary w-100 py-2"><img style="    width: 6%;"
+              src="assets/img/azure.svg">
+            Sign In Using
+            Microsoft</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- <div class="container">
+      <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+         <div class="card">
+
+            <div class="bg-blue py-4">
+              <div class="row px-3">
+                  <small class="ml-4 ml-sm-5 mb-2">Copyright &copy; 2019. All rights reserved.</small>
+                  <div class="social-contact ml-4 ml-sm-auto">
+                      <span class="fa fa-facebook mr-4 text-sm"></span>
+                      <span class="fa fa-google-plus mr-4 text-sm"></span>
+                      <span class="fa fa-linkedin mr-4 text-sm"></span>
+                      <span class="fa fa-twitter mr-4 mr-sm-5 text-sm"></span>
+                  </div>
+              </div>
+          </div>
+         </div>
+      </section>
+   </div> -->
+  <div class="toast-container p-3 bottom-0 end-0" *ngIf="false">
+    <div class="toast show align-items-center text-bg-danger border-0" role="alert" aria-live="assertive"
+      aria-atomic="true">
+      <div class="d-flex align-items-center">
+        <div class="ps-3"><i class="bi bi-info-circle"></i></div>
+        <div class="toast-body">
+          Hello, world! This is a toast message.
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+          aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+
+</main>

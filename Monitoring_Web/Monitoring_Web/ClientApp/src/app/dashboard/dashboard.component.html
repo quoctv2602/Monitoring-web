@@ -1,0 +1,202 @@
+<main id="main" class="main d-flex flex-column">
+  <nav>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/" title="Home"><i class="bi bi-house"></i></a></li>
+      <li class="breadcrumb-item active">Dashboard</li>
+    </ol>
+  </nav>
+  <div class="pagetitle d-flex justify-content-between">
+    <h1>Dashboard</h1>
+    <div>
+      <!-- <button type="button" class="btn btn-primary btn-sm m-1" [routerLink]="['/settings']">Settings</button> -->
+      <button type="button" class="btn btn-light btn-sm" (click)="onClickStartSlideShow()" title="Start slide show"
+        *ngIf="!isStartSlideShow && (roles.indexOf(globalEnumResult.ActionEnum.dashboardViewTransactionBased)!==-1 || roles.indexOf(globalEnumResult.ActionEnum.dashboardViewSystemBased)!==-1)">
+        <i class="bi bi-arrows-fullscreen me-2"></i> Start slide show</button>
+      <button type="button" class="btn btn-light btn-sm" (click)="onClickStartSlideShow()" title="Stop slide show"
+        *ngIf="isStartSlideShow"><i class="bi bi-arrows-angle-contract me-2"></i> Stop slide show</button>
+    </div>
+  </div>
+
+  <ul class="nav nav-pills mb-2">
+    <li class="nav-item">
+      <button [ngClass]="{'active': roles.indexOf(globalEnumResult.ActionEnum.dashboardViewTransactionBased)!==-1 }"
+        *ngIf="roles.indexOf(globalEnumResult.ActionEnum.dashboardViewTransactionBased)!==-1"
+        class="nav-link rounded-pill" (click)="onChangeDashboardTypeTab(1)" data-bs-toggle="tab"
+        data-bs-target="#profile-TRANSACTIONS">Transactions</button>
+    </li>
+    <li class="nav-item">
+      <button
+        [ngClass]="{'active': roles.indexOf(globalEnumResult.ActionEnum.dashboardViewSystemBased)!==-1 && roles.indexOf(globalEnumResult.ActionEnum.dashboardViewTransactionBased)===-1}"
+        *ngIf="roles.indexOf(globalEnumResult.ActionEnum.dashboardViewSystemBased)!==-1" class="nav-link rounded-pill"
+        (click)="onChangeDashboardTypeTab(2)" data-bs-toggle="tab" data-bs-target="#profile-HEALTH">System
+        Health</button>
+    </li>
+  </ul>
+
+  <div class="tab-content h-100">
+    <div [ngClass]="{'active': roles.indexOf(globalEnumResult.ActionEnum.dashboardViewTransactionBased)!==-1}"
+      class="tab-pane fade show profile-TRANSACTIONS h-100" id="profile-TRANSACTIONS">
+      <app-transaction-based [isStartSlideShow]="isStartSlideShow" [transactionData]="transactionData"
+        [secondMax]="intervalSlideKPI/1000" (onStartGetData)="handleStartGetDataTransaction($any($event))">
+      </app-transaction-based>
+    </div>
+    <div
+      [ngClass]="{'active': roles.indexOf(globalEnumResult.ActionEnum.dashboardViewSystemBased)!==-1 && roles.indexOf(globalEnumResult.ActionEnum.dashboardViewTransactionBased)===-1}"
+      class=" tab-pane fade show profile-HEALTH h-100" id="profile-HEALTH">
+      <section class="section">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="card position-relative mb-2">
+              <div class="line-loading position-absolute w-100" *ngIf="isLoading"></div>
+              <div class="card-header justify-content-between d-flex align-items-center">
+                <div class="card-title col-2">Nodes</div>
+                <div class="col text-end">
+                  <button type="button" class="btn btn-outline-secondary btn-sm" (click)="onClickGetNode()"><i
+                      class="bi bi-bootstrap-reboot text-primary me-1"></i> Refresh Nodes</button>
+                </div>
+              </div>
+              <div class="card-body table-card" style="min-height: 365px">
+                <div class="tableFixHead">
+                  <table class="table table-sm table-responsive">
+                    <thead>
+                      <tr>
+                        <th scope="col" style="width: 40px;text-align: center;">
+                          <input class="form-check-input" type="checkbox" (change)="onSelectAll()"
+                            [(ngModel)]="isSelectAll" id="checkSelectAll">
+                        </th>
+                        <th scope="col text-start">Node</th>
+                        <th scope="col">Environment</th>
+                        <th scope="col">Utilization</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <ng-container *ngFor="let data of listNodes">
+                        <tr style="cursor: pointer;">
+                          <td style="text-align: center;">
+                            <input class="form-check-input" type="checkbox" (change)="onSelectingTabledata(data)"
+                              [(ngModel)]="data.selecting" id="flexCheckDefault">
+                          </td>
+                          <td> {{data.nodeName}} </td>
+                          <td> {{data.environmentName}} </td>
+                          <td> {{data.utilization}} </td>
+                        </tr>
+                      </ng-container>
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="showButtonService">
+              <div class="card position-relative mb-5">
+                <div class="line-loading position-absolute w-100" *ngIf="isLoadingServices"></div>
+                <div class="card-header justify-content-between d-flex align-items-center">
+                  <div class="card-title col-8">Services</div>
+                  <div class="col text-end">
+                    <button *ngIf="showButtonService" type="button" class="btn btn-outline-secondary btn-sm me-1"
+                      (click)="handleGetDataServices(0)" title="Get Services"><i class="bi bi-gear-wide-connected"></i>
+                      Get Services
+                    </button>
+                  </div>
+                </div>
+                <div class="card-body table-card" style="min-height: 300px">
+                  <div class="tableFixHead">
+                    <table class="table table-sm table-hover">
+                      <thead>
+                        <tr>
+                          <th scope="col">App Service</th>
+                          <!-- <th scope="col" style="width: 15%;">Instances</th> -->
+                          <th scope="col">Node</th>
+                          <th scope="col" style="width: 15%;">Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <ng-container *ngFor="let data of dataServiceWithStatus">
+                          <tr style="cursor: pointer;">
+                            <td> {{data.serviceName}} </td>
+                            <!-- <td class="text-center"> {{data.instance}}</td> -->
+                            <td> {{data.nodeName}} </td>
+                            <td class="text-center"> {{data.status}}</td>
+                          </tr>
+                        </ng-container>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8">
+            <div class="card position-relative">
+              <div class="line-loading position-absolute w-100" *ngIf="isLoadingChart">
+              </div>
+              <div class="card-header justify-content-between d-flex align-items-center">
+                <div class="card-title col-2">KPI</div>
+                <div class="dropdown" style="width: 200px;">
+                  <div class="form-floating form-floating-sm pe-1">
+                    <ng-select [items]="listMonitoringType" [disabled]="isStartSlideShow" [clearable]="false"
+                      [searchable]="false" bindLabel="name" bindValue="id" [(ngModel)]="monitoringType"
+                      (change)="handleGetData(null,'click')">
+                      <ng-template ng-option-tmp let-item="item">
+                        <div [title]="item.name">{{item.name}}</div>
+                      </ng-template>
+                    </ng-select>
+                    <label for="monitoringType">View by</label>
+                  </div>
+                  <!-- <button type="button" data-bs-toggle="dropdown"
+                    class="btn btn-outline-secondary btn_hv-label dropdown-toggle"><span class="label_button">View
+                      By</span> <span class="item_seleted text-nowrap">{{selectedNodeName}}</span></button> -->
+                  <!-- <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="visually-hidden">Toggle Dropdown</span>
+                  </button> -->
+                  <!-- <ul class="dropdown-menu dropdown-menu-end dropdown_ct-scrll">
+                    <li *ngFor="let item of listMonitoringType">
+                      <div class="dropdown-item">
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                            (change)="handleGetData()" [(ngModel)]="monitoringType" [id]="'radio'+item.name"
+                            [value]="item.id">
+                          <label class="form-check-label text-nowrap" [for]="'radio'+item.name">{{item.name}}</label>
+                        </div>
+                      </div>
+                    </li>
+                  </ul> -->
+                </div>
+                <!-- <perfect-scrollbar class="ps card-header_overflow-tab justify-content-center align-items-center ">
+                          <div class="form-check form-check-sm form-check-inline" *ngFor="let item of listMonitoringType">
+                             <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                (change)="handleGetData()" [(ngModel)]="monitoringType" [id]="'radio'+item.name"
+                                [value]="item.id">
+                             <label class="form-check-label text-nowrap" [for]="'radio'+item.name">{{item.name}}</label>
+                          </div>
+                       </perfect-scrollbar> -->
+              </div>
+              <div *ngIf="showCustomLegend" class="card-body card-header_overflow-chart">
+                <div
+                  class="card-header_overflow-chart-in d-flex align-items-baseline border-top justify-content-center">
+                  <ng-container *ngFor="let item of thresholdFreeDisk">
+                    <div class="col-3 justify-content-center text-center">
+                      <div class="hr-theme-slash-2">
+                        <div class="hr-line" (click)="onClickCustomLegend(item)" [style]="getCustomLegend(item)"></div>
+                        <div class="hr-icon">
+                          <label class="text-nowrap text-truncate" [class]="item.labelClass"
+                            (click)="onClickCustomLegend(item)">{{item.machineName}} : Threshold
+                            {{item.threshold}}%</label>
+                        </div>
+                      </div>
+                    </div>
+                  </ng-container>
+                </div>
+              </div>
+              <div class="card-body pb-5">
+                <canvas height="300" [ngStyle]="{'display': monitoringType!==5?'block':'none'}" #baseChart></canvas>
+                <canvas height="300" [ngStyle]="{'display': monitoringType===5?'block':'none'}" #freeDisk></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>

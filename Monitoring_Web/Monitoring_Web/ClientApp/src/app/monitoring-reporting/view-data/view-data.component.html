@@ -1,0 +1,44 @@
+<main id="main" class="main">
+  <nav>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/" title="Home"><i class="bi bi-house"></i></a></li>
+      <li class="breadcrumb-item active"><a routerLink="/monitoring-reporting-basic"
+          title="Transactions">Transactions</a></li>
+    </ol>
+  </nav>
+  <div class="pagetitle d-flex justify-content-between">
+    <h1>Data Content</h1>
+  </div>
+  <div class="animated fadeIn">
+    <div class="card-body">
+      <div class="row">
+        <div class="line-loading position-absolute w-100" *ngIf="isLoading"></div>
+      </div>
+      <div class="row mb-2">
+        <label class="col-md-1 col-form-label col-form-label-sm" for="hf-password"><b>Data Direction</b></label>
+        <div class="col-md-2">
+          <input type="text" readonly name="DataDirection" [(ngModel)]="dataDirection" class="form-control form-control-sm" />
+        </div>
+        <label class="col-md-1 col-form-label col-form-label-sm" for="hf-password" style="text-align: right;"><b>File Name</b></label>
+        <div class="col-md-8">
+          <input type="text" readonly name="Document" [(ngModel)]="document" class="form-control form-control-sm" />
+        </div>
+      </div>
+      <div class="row mb-2">
+        <label class="col-md-1 col-form-label col-form-label-sm" for="hf-password"><b>Data Content</b></label>
+        <div class="col-md-11">
+          <textarea readonly [(ngModel)]="data.fileContent" [ngModelOptions]="{standalone: true}"
+            class="form-control form-control-sm" rows="22"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer border-top-0" style="text-align: right;">
+      <button class="btn btn-sm btn-dark btn-sm me-2" (click)="btnDownload()">
+          Download
+        </button>
+      <button (click)="btnClose()" type="reset" class="btn btn-outline-secondary btn-sm me-2" >
+        Close
+      </button>
+    </div>
+  </div>
+</main>

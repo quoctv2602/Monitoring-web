@@ -1,0 +1,150 @@
+[
+  {
+    "ID": 0,
+    "NodeType": 2,
+    "NodeName": "Template",
+    "EnvironmentID": 1,
+    "MachineName": null,
+    "Description": "Template",
+    "ServiceList": "Service1;Service2",
+    "NotificationEmail": "template1@truecommerce.com;template2@truecommerce.com",
+    "ReportEmail": "template1@truecommerce.com;template2@truecommerce.com",
+    "NotificationAlias": "Template",
+    "ReportAlias": "Template",
+    "CreateDate": null,
+    "IsActive": false,
+    "HealthMeasurementKey": null,
+    "Appid": null,
+    "domain_SystemHealth": null,
+    "ListThresholdRule": [
+      {
+        "ID": 0,
+        "Node_Setting": 0,
+        "EnvironmentID": 1,
+        "MachineName": null,
+        "MonitoringType": 1,
+        "MonitoringName": "CPU",
+        "Condition": 1,
+        "Threshold": 19,
+        "ThresholdCounter": 1,
+        "CreateDate": null
+      },
+      {
+        "ID": 0,
+        "Node_Setting": 0,
+        "EnvironmentID": 1,
+        "MachineName": null,
+        "MonitoringType": 2,
+        "MonitoringName": "Memory",
+        "Condition": 1,
+        "Threshold": 80,
+        "ThresholdCounter": 1,
+        "CreateDate": null
+      },
+      {
+        "ID": 0,
+        "Node_Setting": 0,
+        "EnvironmentID": 1,
+        "MachineName": null,
+        "MonitoringType": 3,
+        "MonitoringName": "Storage",
+        "Condition": 1,
+        "Threshold": 80,
+        "ThresholdCounter": 3,
+        "CreateDate": null
+      },
+      {
+        "ID": 0,
+        "Node_Setting": 0,
+        "EnvironmentID": 1,
+        "MachineName": null,
+        "MonitoringType": 5,
+        "MonitoringName": "Free Disk",
+        "Condition": 2,
+        "Threshold": 10,
+        "ThresholdCounter": 3,
+        "CreateDate": null
+      },
+      {
+        "ID": 0,
+        "Node_Setting": 0,
+        "EnvironmentID": 1,
+        "MachineName": null,
+        "MonitoringType": 6,
+        "MonitoringName": "Shared Storage Running Time",
+        "Condition": 1,
+        "Threshold": 800,
+        "ThresholdCounter": 3,
+        "CreateDate": null
+      },
+      {
+        "ID": 0,
+        "Node_Setting": 0,
+        "EnvironmentID": 1,
+        "MachineName": null,
+        "MonitoringType": 4,
+        "MonitoringName": "EDItoASCII Service Performance",
+        "Condition": 1,
+        "Threshold": 1000,
+        "ThresholdCounter": 3,
+        "CreateDate": null
+      }
+    ]
+  },
+  {
+    "ID": 0,
+    "NodeType": 1,
+    "NodeName": null,
+    "EnvironmentID": 2,
+    "MachineName": null,
+    "Description": "Template",
+    "ServiceList": "",
+    "NotificationEmail": "template1@truecommerce.com;template2@truecommerce.com",
+    "ReportEmail": "template1@truecommerce.com;template2@truecommerce.com",
+    "NotificationAlias": "Notification Alias",
+    "ReportAlias": "Report Alias",
+    "CreateDate": null,
+    "IsActive": false,
+    "HealthMeasurementKey": "Template",
+    "Appid": "Template",
+    "domain_SystemHealth": "https://truecommercevso.visualstudio.com/",
+    "ListThresholdRule": [
+      {
+        "ID": 0,
+        "Node_Setting": 0,
+        "EnvironmentID": 2,
+        "MachineName": null,
+        "MonitoringType": 7,
+        "MonitoringName": "Failed Transaction",
+        "Condition": 1,
+        "Threshold": 12,
+        "ThresholdCounter": 15,
+        "CreateDate": null
+      },
+      {
+        "ID": 0,
+        "Node_Setting": 0,
+        "EnvironmentID": 2,
+        "MachineName": null,
+        "MonitoringType": 8,
+        "MonitoringName": "Intergration Error Transaction",
+        "Condition": 2,
+        "Threshold": 12,
+        "ThresholdCounter": 15,
+        "CreateDate": null
+      },
+      {
+        "ID": 0,
+        "Node_Setting": 0,
+        "EnvironmentID": 2,
+        "MachineName": null,
+        "MonitoringType": 9,
+        "MonitoringName": "Pending Transaction",
+        "Condition": 1,
+        "Threshold": 15,
+        "ThresholdCounter": 45,
+        "CreateDate": null
+      }
+    ]
+  }
+]

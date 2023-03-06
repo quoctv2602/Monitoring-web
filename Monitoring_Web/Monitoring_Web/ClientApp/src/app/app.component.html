@@ -1,0 +1,28 @@
+<app-header (Clear)="eventClear()" [msg]="Message" [msgNew]="msgNew" *ngIf="
+    !(
+      _router.url === '/pages-register' ||
+      _router.url === '/login' ||
+      _router.url === '/pages-error404' ||
+      _router.url === '/SSOLogin'
+    )
+  "></app-header>
+<app-sidebar *ngIf="
+    !(
+      _router.url === '/pages-register' ||
+      _router.url === '/login' ||
+      _router.url === '/pages-error404' ||
+      _router.url === '/SSOLogin'
+    )
+  "></app-sidebar>
+<router-outlet></router-outlet>
+
+<app-footer *ngIf="
+    !(
+      _router.url === '/pages-register' ||
+      _router.url === '/login' ||
+      _router.url === '/pages-error404' ||
+      _router.url === '/SSOLogin'
+    )
+  "></app-footer>
+<ngx-spinner bdColor="rgba(32,32,32,0.8)" size="medium" color="#fff" type="ball-scale-multiple" [fullScreen]="true">
+</ngx-spinner>

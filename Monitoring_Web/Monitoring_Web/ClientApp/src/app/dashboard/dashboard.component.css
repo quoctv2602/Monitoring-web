@@ -1,0 +1,37 @@
+.tableFixHead {
+  overflow: auto;
+  height: 300px;
+}
+.tableFixHead thead th {
+  position: sticky;
+  top: -2px;
+  z-index: 1;
+}
+.tableFixHead tbody th {
+  position: sticky;
+  left: 0;
+}
+.nav-tabs-bordered .nav-link.active {
+  color: #0c6efc !important;
+}
+.hr-theme-slash-2 {
+  display: flex;
+}
+.hr-line {
+  width: 15%;
+  position: relative;
+  margin: 15px;
+}
+.hr-icon {
+  position: relative;
+  top: 8px;
+  font-size: 12px;
+}
+.hr-icon .label-active {
+  text-decoration: none;
+}
+.hr-icon .label-inactive {
+  text-decoration: line-through;
+}
+
+/* Just common table stuff. Really. */

@@ -1,0 +1,18 @@
+.first-column {
+  border: 1px solid black;
+  text-align: center;
+  font-weight: bold;
+}
+.second-column {
+  border-bottom: 1px solid black;
+  border-right: 1px dashed black;
+  padding-left: 45px;
+}
+.third-column {
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+}
+.second-column-group {
+  border-bottom: 1px solid black;
+  border-right: 1px dashed black;
+}
